@@ -6,21 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1051</width>
-    <height>601</height>
+    <width>1200</width>
+    <height>759</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Cavland Hostel Management System</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>MS Serif</family>
+    </font>
+   </property>
    <widget class="QFrame" name="main_body">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1051</width>
-      <height>601</height>
+      <width>1201</width>
+      <height>761</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -32,334 +37,13 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="nav_bar">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>251</width>
-       <height>601</height>
-      </rect>
-     </property>
-     <property name="mouseTracking">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(8, 26, 81);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="Title">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>10</y>
-        <width>221</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>CAVLAND HOSTEL</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnDashboard">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-        <kerning>true</kerning>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(27, 43, 101);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Dashboard</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnRoom">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>130</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Rooms</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnStudent">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Students</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnAnalytics">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>230</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Analytics</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnExpansion">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>280</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Expansions</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnStaff">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>380</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Staff</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnReport">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>330</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Reports</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BtnLog">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>430</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 60px;</string>
-      </property>
-      <property name="text">
-       <string>Logs</string>
-      </property>
-     </widget>
-     <zorder>Title</zorder>
-     <zorder>BtnRoom</zorder>
-     <zorder>BtnStudent</zorder>
-     <zorder>BtnAnalytics</zorder>
-     <zorder>BtnExpansion</zorder>
-     <zorder>BtnDashboard</zorder>
-     <zorder>BtnStaff</zorder>
-     <zorder>BtnReport</zorder>
-     <zorder>BtnLog</zorder>
-    </widget>
     <widget class="QFrame" name="main_contemt">
      <property name="geometry">
       <rect>
        <x>250</x>
-       <y>60</y>
-       <width>801</width>
-       <height>541</height>
+       <y>0</y>
+       <width>951</width>
+       <height>761</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -368,26 +52,13 @@ padding-left: 60px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="Line" name="line">
-      <property name="geometry">
-       <rect>
-        <x>-3</x>
-        <y>-10</y>
-        <width>801</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
      <widget class="QFrame" name="DashobardArea">
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
-        <width>801</width>
-        <height>541</height>
+        <y>59</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -440,9 +111,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -479,9 +150,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>941</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -518,9 +189,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -557,9 +228,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>791</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -596,9 +267,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>711</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -635,9 +306,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -674,9 +345,9 @@ padding-left: 60px;</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>541</height>
+        <y>60</y>
+        <width>951</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -709,7 +380,69 @@ padding-left: 60px;</string>
        </property>
       </widget>
      </widget>
-     <zorder>line</zorder>
+     <widget class="QFrame" name="main_header">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>951</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1024</width>
+        <height>1600</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="LblTitle">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>161</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>17</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Dashboard</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>50</y>
+         <width>951</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(218, 218, 218);</string>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
      <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
      <zorder>AnalyticsArea</zorder>
@@ -718,24 +451,22 @@ padding-left: 60px;</string>
      <zorder>StaffArea</zorder>
      <zorder>LogsArea</zorder>
      <zorder>DashobardArea</zorder>
+     <zorder>main_header</zorder>
     </widget>
-    <widget class="QFrame" name="main_header">
+    <widget class="QFrame" name="nav_bar">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>0</x>
        <y>0</y>
-       <width>801</width>
-       <height>61</height>
+       <width>251</width>
+       <height>761</height>
       </rect>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>1024</width>
-       <height>1600</height>
-      </size>
+     <property name="mouseTracking">
+      <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(8, 26, 81);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -743,32 +474,397 @@ padding-left: 60px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="LblTitle">
+     <widget class="QLabel" name="Title">
       <property name="geometry">
        <rect>
         <x>20</x>
         <y>10</y>
-        <width>161</width>
-        <height>36</height>
+        <width>231</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Franklin Gothic Medium</family>
-        <pointsize>17</pointsize>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>CAVLAND HOSTEL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LblNav1">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);</string>
+       <string notr="true">color: rgb(81, 203, 255);</string>
       </property>
       <property name="text">
-       <string>Dashboard</string>
+       <string>MAIN MENU</string>
       </property>
      </widget>
+     <widget class="QLabel" name="LblNav2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>280</y>
+        <width>151</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(81, 203, 255);</string>
+      </property>
+      <property name="text">
+       <string>ADMIN</string>
+      </property>
+     </widget>
+     <widget class="QSplitter" name="BtnSetAdmin">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>310</y>
+        <width>231</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QPushButton" name="BtnAnalytics">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Analytics</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Chart_alt.png</normaloff>:/img/img/Chart_alt.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnExpansion">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Expansions</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Pressure.png</normaloff>:/img/img/Pressure.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnReport">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Reports</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Folder_alt.png</normaloff>:/img/img/Folder_alt.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnStaff">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Staff</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/User_add.png</normaloff>:/img/img/User_add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnLog">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Logs</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Order.png</normaloff>:/img/img/Order.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QSplitter" name="BtnSetCommon">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>231</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QPushButton" name="BtnDashboard">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(27, 43, 101);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Dashboard</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Chart.png</normaloff>:/img/img/Chart.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnRoom">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Rooms</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/Room.png</normaloff>:/img/img/Room.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnStudent">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(8, 26, 81);
+color: rgb(255, 255, 255);
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+text-align: left;
+padding-left: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Students</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/User_box.png</normaloff>:/img/img/User_box.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <zorder>BtnRoom</zorder>
+     <zorder>BtnStudent</zorder>
+     <zorder>BtnAnalytics</zorder>
+     <zorder>BtnExpansion</zorder>
+     <zorder>BtnDashboard</zorder>
+     <zorder>BtnStaff</zorder>
+     <zorder>BtnReport</zorder>
+     <zorder>BtnLog</zorder>
+     <zorder>Title</zorder>
+     <zorder>LblNav1</zorder>
+     <zorder>LblNav2</zorder>
     </widget>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
