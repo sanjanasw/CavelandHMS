@@ -419,6 +419,22 @@ padding-left: 60px;</string>
         <string>Dashboard</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>520</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Database Connection</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="RoomsArea">
       <property name="geometry">

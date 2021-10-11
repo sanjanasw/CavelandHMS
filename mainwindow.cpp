@@ -1,12 +1,29 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dbconnection.h"
+#include <QtSql>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+    //database connection
+    QSqlDatabase db = DBConnection::ConnectDb();
+    try {
+        if(db.open()){
+            ui->setupUi(this);
+            setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        }else{
+            QMessageBox Msgbox;
+            Msgbox.setText("can't connect to the database. check your internet connection.");
+            Msgbox.exec();
+            throw 505;
+        }
+    }  catch (...) {
+
+    }
 }
 
 MainWindow::~MainWindow()
