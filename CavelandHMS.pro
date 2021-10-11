@@ -11,11 +11,13 @@ CONFIG += c++11
 
 SOURCES += \
     dbconnection.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     dbconnection.h \
+    login.h \
     mainwindow.h
 
 FORMS += \
