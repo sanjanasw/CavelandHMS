@@ -22,6 +22,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BtnReport->setEnabled(false);
     ui->BtnStaff->setEnabled(false);
     ui->BtnLog->setEnabled(false);
+
+    //adminArea
+    ui->LblNav2->setVisible(false);
+    ui->BtnAnalytics->setVisible(false);
+    ui->BtnExpansion->setVisible(false);
+    ui->BtnReport->setVisible(false);
+    ui->BtnStaff->setVisible(false);
+    ui->BtnLog->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -248,26 +256,39 @@ void MainWindow::on_BtnLogin_clicked()
     ui->LodingArea->show();
     ui->LblTitle->setText("Loading...");
     ui->LblTitle->repaint();
-    int loginStatus = Login::UserLogin(UserName, Password);
+    QString* UserData = Login::UserLogin(UserName, Password);
+    int loginStatus = UserData[0].toInt();
     if(loginStatus == 1){
 
         //buttons
         ui->BtnDashboard->setEnabled(true);
         ui->BtnRoom->setEnabled(true);
         ui->BtnStudent->setEnabled(true);
-        ui->BtnAnalytics->setEnabled(true);
-        ui->BtnExpansion->setEnabled(true);
-        ui->BtnReport->setEnabled(true);
-        ui->BtnStaff->setEnabled(true);
-        ui->BtnLog->setEnabled(true);
         ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
         ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
         ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnLog->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+
+        if(UserData[3] == "admin"){
+            //adminArea
+            ui->LblNav2->setVisible(true);
+            ui->BtnAnalytics->setVisible(true);
+            ui->BtnExpansion->setVisible(true);
+            ui->BtnReport->setVisible(true);
+            ui->BtnStaff->setVisible(true);
+            ui->BtnLog->setVisible(true);
+
+            ui->BtnAnalytics->setEnabled(true);
+            ui->BtnExpansion->setEnabled(true);
+            ui->BtnReport->setEnabled(true);
+            ui->BtnStaff->setEnabled(true);
+            ui->BtnLog->setEnabled(true);
+
+            ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+            ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+            ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+            ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+            ui->BtnLog->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+        }
 
         ui->LoginArea->hide();
         ui->LodingArea->hide();

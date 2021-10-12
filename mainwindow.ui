@@ -756,7 +756,7 @@ color: rgb(255, 255, 255);</string>
        <string>ADMIN</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -765,7 +765,7 @@ color: rgb(255, 255, 255);</string>
         <height>191</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="UserBtnSection">
        <item>
         <widget class="QPushButton" name="BtnDashboard">
          <property name="font">
@@ -880,7 +880,7 @@ padding-left: 40px;</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -889,7 +889,7 @@ padding-left: 40px;</string>
         <height>331</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="AdminBtnSection">
        <item>
         <widget class="QPushButton" name="BtnAnalytics">
          <property name="font">
@@ -1077,18 +1077,11 @@ padding-left: 40px;</string>
        </item>
       </layout>
      </widget>
-     <zorder>BtnRoom</zorder>
-     <zorder>BtnStudent</zorder>
-     <zorder>BtnAnalytics</zorder>
-     <zorder>BtnExpansion</zorder>
-     <zorder>BtnDashboard</zorder>
-     <zorder>BtnStaff</zorder>
-     <zorder>BtnReport</zorder>
-     <zorder>BtnLog</zorder>
+     <zorder>layoutWidget</zorder>
+     <zorder>layoutWidget</zorder>
      <zorder>Title</zorder>
      <zorder>LblNav1</zorder>
      <zorder>LblNav2</zorder>
-     <zorder>BtnSetCommon</zorder>
     </widget>
    </widget>
   </widget>
