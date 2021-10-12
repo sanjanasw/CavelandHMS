@@ -4,12 +4,13 @@
 #include "login.h"
 #include <QMessageBox>
 
+QString loggedInUserName;
+int loggedInUserId;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-{
-
+{    
     ui->setupUi(this);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 
@@ -30,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BtnReport->setVisible(false);
     ui->BtnStaff->setVisible(false);
     ui->BtnLog->setVisible(false);
+
+    //logout
+    ui->BtnLogOut->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -252,12 +256,16 @@ void MainWindow::on_BtnLogin_clicked()
 {
     QString UserName = ui->TxtUserName->text();
     QString Password = ui->TxtPassword->text();
+    ui->TxtUserName->clear();
+    ui->TxtPassword->clear();
     ui->LoginArea->hide();
     ui->LodingArea->show();
     ui->LblTitle->setText("Loading...");
     ui->LblTitle->repaint();
     QString* UserData = Login::UserLogin(UserName, Password);
     int loginStatus = UserData[0].toInt();
+    loggedInUserId = UserData[1].toInt();
+    loggedInUserName = UserData[2];
     if(loginStatus == 1){
 
         //buttons
@@ -267,6 +275,8 @@ void MainWindow::on_BtnLogin_clicked()
         ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
         ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
         ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+        ui->LblUserName->setText("Hi,"+ loggedInUserName +"!");
+        ui->BtnLogOut->setVisible(true);
 
         if(UserData[3] == "admin"){
             //adminArea
@@ -304,5 +314,44 @@ void MainWindow::on_BtnLogin_clicked()
         ui->LblTitle->setText("Login");
         ui->LblTitle->repaint();
     }
+}
+
+
+void MainWindow::on_BtnLogOut_clicked()
+{
+    //buttons
+    ui->BtnDashboard->setEnabled(false);
+    ui->BtnRoom->setEnabled(false);
+    ui->BtnStudent->setEnabled(false);
+    ui->BtnAnalytics->setEnabled(false);
+    ui->BtnExpansion->setEnabled(false);
+    ui->BtnReport->setEnabled(false);
+    ui->BtnStaff->setEnabled(false);
+    ui->BtnLog->setEnabled(false);
+
+    //adminArea
+    ui->LblNav2->setVisible(false);
+    ui->BtnAnalytics->setVisible(false);
+    ui->BtnExpansion->setVisible(false);
+    ui->BtnReport->setVisible(false);
+    ui->BtnStaff->setVisible(false);
+    ui->BtnLog->setVisible(false);
+    ui->DashobardArea->hide();
+    ui->RoomsArea->hide();
+    ui->StudentsArea->hide();
+    ui->AnalyticsArea->hide();
+    ui->ExpansionsArea->hide();
+    ui->ReportsArea->hide();
+    ui->StaffArea->hide();
+    ui->LodingArea->hide();
+    ui->LogsArea->hide();
+
+    ui->LblUserName->setText("");
+    ui->BtnLogOut->setVisible(false);
+    ui->LblTitle->setText("Login");
+    loggedInUserId = 0;
+    loggedInUserName = "";
+
+    ui->LoginArea->show();
 }
 
