@@ -278,7 +278,7 @@ void MainWindow::on_BtnLogin_clicked()
         ui->LblUserName->setText("Hi,"+ loggedInUserName +"!");
         ui->BtnLogOut->setVisible(true);
 
-        if(UserData[3] == "admin"){
+        if(UserData[3] == "1"){
             //adminArea
             ui->LblNav2->setVisible(true);
             ui->BtnAnalytics->setVisible(true);
@@ -319,39 +319,43 @@ void MainWindow::on_BtnLogin_clicked()
 
 void MainWindow::on_BtnLogOut_clicked()
 {
-    //buttons
-    ui->BtnDashboard->setEnabled(false);
-    ui->BtnRoom->setEnabled(false);
-    ui->BtnStudent->setEnabled(false);
-    ui->BtnAnalytics->setEnabled(false);
-    ui->BtnExpansion->setEnabled(false);
-    ui->BtnReport->setEnabled(false);
-    ui->BtnStaff->setEnabled(false);
-    ui->BtnLog->setEnabled(false);
+    if (QMessageBox::Yes == QMessageBox::question(this, "Logout", "Are you sure?", QMessageBox::Yes | QMessageBox::No))
+    {
+        //buttons
+        ui->BtnDashboard->setEnabled(false);
+        ui->BtnRoom->setEnabled(false);
+        ui->BtnStudent->setEnabled(false);
+        ui->BtnAnalytics->setEnabled(false);
+        ui->BtnExpansion->setEnabled(false);
+        ui->BtnReport->setEnabled(false);
+        ui->BtnStaff->setEnabled(false);
+        ui->BtnLog->setEnabled(false);
 
-    //adminArea
-    ui->LblNav2->setVisible(false);
-    ui->BtnAnalytics->setVisible(false);
-    ui->BtnExpansion->setVisible(false);
-    ui->BtnReport->setVisible(false);
-    ui->BtnStaff->setVisible(false);
-    ui->BtnLog->setVisible(false);
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LodingArea->hide();
-    ui->LogsArea->hide();
+        //adminArea
+        ui->LblNav2->setVisible(false);
+        ui->BtnAnalytics->setVisible(false);
+        ui->BtnExpansion->setVisible(false);
+        ui->BtnReport->setVisible(false);
+        ui->BtnStaff->setVisible(false);
+        ui->BtnLog->setVisible(false);
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LogsArea->hide();
 
-    ui->LblUserName->setText("");
-    ui->BtnLogOut->setVisible(false);
-    ui->LblTitle->setText("Login");
-    loggedInUserId = 0;
-    loggedInUserName = "";
+        ui->LblUserName->setText("");
+        ui->BtnLogOut->setVisible(false);
+        ui->LblTitle->setText("Login");
+        loggedInUserId = 0;
+        loggedInUserName = "";
 
-    ui->LoginArea->show();
+        ui->LoginArea->show();
+    }
+
 }
 
