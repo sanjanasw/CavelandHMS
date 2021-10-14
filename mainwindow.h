@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtCharts>
+#include <QChartView>
+#include <QPieSeries>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,6 +37,8 @@ private slots:
     void on_BtnLog_clicked();
 
     void on_BtnLogin_clicked();
+
+    void on_BtnLogOut_clicked();
 
 private:
     Ui::MainWindow *ui;

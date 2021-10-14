@@ -1,15 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dbconnection.h"
+#include "dashboarddata.h"
 #include "login.h"
-#include <QMessageBox>
 
+QString loggedInUserName;
+int loggedInUserId;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-{
-
+{    
     ui->setupUi(this);
     setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 
@@ -22,6 +23,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BtnReport->setEnabled(false);
     ui->BtnStaff->setEnabled(false);
     ui->BtnLog->setEnabled(false);
+
+    //adminArea
+    ui->LblNav2->setVisible(false);
+    ui->BtnAnalytics->setVisible(false);
+    ui->BtnExpansion->setVisible(false);
+    ui->BtnReport->setVisible(false);
+    ui->BtnStaff->setVisible(false);
+    ui->BtnLog->setVisible(false);
+
+    //logout
+    ui->BtnLogOut->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -40,7 +52,6 @@ void MainWindow::on_BtnDashboard_clicked()
     ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
     ui->BtnLog->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
 
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
     ui->RoomsArea->hide();
     ui->StudentsArea->hide();
@@ -51,6 +62,30 @@ void MainWindow::on_BtnDashboard_clicked()
     ui->LogsArea->hide();
     ui->LoginArea->hide();
     ui->LodingArea->hide();
+
+
+    if(dashboarddata::getGenderChart()->isEmpty()){
+        ui->LodingArea->show();
+        ui->LblTitle->setText("Loading...");
+        ui->LblTitle->repaint();
+        dashboarddata::getDashboardData();
+
+
+        QChart *chart = new QChart();
+        chart->addSeries(dashboarddata::getGenderChart());
+
+        QChartView *chartview = new QChartView(chart);
+        chartview->setMaximumSize(ui->GenderChart->size());
+        chartview->setParent(ui->GenderChart);
+
+        QString* RoomData = dashboarddata::getRoomData();
+        ui->LblTotalRooms->setText(RoomData[0]);
+        ui->LblReservedRooms->setText(RoomData[1]);
+        ui->LblAvailableRooms->setText(RoomData[2]);
+
+        ui->LodingArea->hide();
+    }
+    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
     ui->LblTitle->setText("Dashboard");
     ui->DashobardArea->show();
 }
@@ -244,35 +279,62 @@ void MainWindow::on_BtnLogin_clicked()
 {
     QString UserName = ui->TxtUserName->text();
     QString Password = ui->TxtPassword->text();
+    ui->TxtUserName->clear();
+    ui->TxtPassword->clear();
+    ui->DashobardArea->hide();
+    ui->RoomsArea->hide();
+    ui->StudentsArea->hide();
+    ui->AnalyticsArea->hide();
+    ui->ExpansionsArea->hide();
+    ui->ReportsArea->hide();
+    ui->StaffArea->hide();
+    ui->LodingArea->hide();
+    ui->LogsArea->hide();
     ui->LoginArea->hide();
     ui->LodingArea->show();
     ui->LblTitle->setText("Loading...");
     ui->LblTitle->repaint();
-    int loginStatus = Login::UserLogin(UserName, Password);
+    QString* UserData = Login::UserLogin(UserName, Password);
+    int loginStatus = UserData[0].toInt();
+    loggedInUserId = UserData[1].toInt();
+    loggedInUserName = UserData[2];
     if(loginStatus == 1){
 
         //buttons
         ui->BtnDashboard->setEnabled(true);
         ui->BtnRoom->setEnabled(true);
         ui->BtnStudent->setEnabled(true);
-        ui->BtnAnalytics->setEnabled(true);
-        ui->BtnExpansion->setEnabled(true);
-        ui->BtnReport->setEnabled(true);
-        ui->BtnStaff->setEnabled(true);
-        ui->BtnLog->setEnabled(true);
-        ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
-        ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-        ui->BtnLog->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//        ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
+//        ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//        ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+        ui->LblUserName->setText("Hi,"+ loggedInUserName +"!");
+        ui->BtnLogOut->setVisible(true);
+
+        if(UserData[3] == "1"){
+            //adminArea
+            ui->LblNav2->setVisible(true);
+            ui->BtnAnalytics->setVisible(true);
+            ui->BtnExpansion->setVisible(true);
+            ui->BtnReport->setVisible(true);
+            ui->BtnStaff->setVisible(true);
+            ui->BtnLog->setVisible(true);
+
+            ui->BtnAnalytics->setEnabled(true);
+            ui->BtnExpansion->setEnabled(true);
+            ui->BtnReport->setEnabled(true);
+            ui->BtnStaff->setEnabled(true);
+            ui->BtnLog->setEnabled(true);
+
+//            ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//            ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//            ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//            ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+//            ui->BtnLog->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+        }
 
         ui->LoginArea->hide();
         ui->LodingArea->hide();
-        ui->LblTitle->setText("Dashboard");
-        ui->DashobardArea->show();
+        MainWindow::on_BtnDashboard_clicked();
     }else{
         QMessageBox Msgbox;
         Msgbox.setText("Incorrect UserName or Password!!");
@@ -283,5 +345,48 @@ void MainWindow::on_BtnLogin_clicked()
         ui->LblTitle->setText("Login");
         ui->LblTitle->repaint();
     }
+}
+
+
+void MainWindow::on_BtnLogOut_clicked()
+{
+    if (QMessageBox::Yes == QMessageBox::question(this, "Logout", "Are you sure?", QMessageBox::Yes | QMessageBox::No))
+    {
+        //buttons
+        ui->BtnDashboard->setEnabled(false);
+        ui->BtnRoom->setEnabled(false);
+        ui->BtnStudent->setEnabled(false);
+        ui->BtnAnalytics->setEnabled(false);
+        ui->BtnExpansion->setEnabled(false);
+        ui->BtnReport->setEnabled(false);
+        ui->BtnStaff->setEnabled(false);
+        ui->BtnLog->setEnabled(false);
+
+        //adminArea
+        ui->LblNav2->setVisible(false);
+        ui->BtnAnalytics->setVisible(false);
+        ui->BtnExpansion->setVisible(false);
+        ui->BtnReport->setVisible(false);
+        ui->BtnStaff->setVisible(false);
+        ui->BtnLog->setVisible(false);
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LogsArea->hide();
+
+        ui->LblUserName->setText("");
+        ui->BtnLogOut->setVisible(false);
+        ui->LblTitle->setText("Login");
+        loggedInUserId = 0;
+        loggedInUserName = "";
+
+        ui->LoginArea->show();
+    }
+
 }
 

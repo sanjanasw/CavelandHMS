@@ -67,44 +67,236 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardiconb.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
+         <x>150</x>
+         <y>40</y>
+         <width>91</width>
+         <height>16</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(169, 171, 176);</string>
        </property>
        <property name="text">
-        <string>Dashboard</string>
+        <string>Total Rooms</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="LblTotalRooms">
        <property name="geometry">
         <rect>
-         <x>660</x>
-         <y>520</y>
-         <width>121</width>
+         <x>160</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>790</x>
+         <y>40</y>
+         <width>91</width>
          <height>16</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(169, 171, 176);</string>
        </property>
        <property name="text">
-        <string>Database Connection</string>
+        <string>Reserved</string>
        </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardiconp.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblReservedRooms">
+       <property name="geometry">
+        <rect>
+         <x>800</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>40</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(169, 171, 176);</string>
+       </property>
+       <property name="text">
+        <string>Available</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardicong.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblAvailableRooms">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QFrame" name="GenderChart">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>130</y>
+         <width>400</width>
+         <height>400</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>500</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+       </layout>
       </widget>
      </widget>
      <widget class="QFrame" name="RoomsArea">
@@ -442,6 +634,64 @@
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
+      <widget class="QPushButton" name="BtnLogOut">
+       <property name="geometry">
+        <rect>
+         <x>889</x>
+         <y>0</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/img/img/LogOut.png</normaloff>:/img/img/LogOut.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblUserName">
+       <property name="geometry">
+        <rect>
+         <x>790</x>
+         <y>10</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <zorder>LblTitle</zorder>
+      <zorder>BtnLogOut</zorder>
+      <zorder>line</zorder>
+      <zorder>LblUserName</zorder>
      </widget>
      <widget class="QFrame" name="LoginArea">
       <property name="geometry">
@@ -451,6 +701,9 @@
         <width>951</width>
         <height>701</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(218, 218, 218);</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -464,7 +717,7 @@
          <x>220</x>
          <y>40</y>
          <width>481</width>
-         <height>371</height>
+         <height>401</height>
         </rect>
        </property>
        <property name="text">
@@ -475,30 +728,6 @@
        </property>
        <property name="scaledContents">
         <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="TxtPassword">
-       <property name="geometry">
-        <rect>
-         <x>570</x>
-         <y>510</y>
-         <width>291</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 1px solid rgb(225, 227, 230);
-border-radius: 10px;
-padding-left: 10px;</string>
-       </property>
-       <property name="inputMethodHints">
-        <set>Qt::ImhNone</set>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QLineEdit" name="TxtUserName">
@@ -512,6 +741,32 @@ padding-left: 10px;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtPassword">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>510</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
 border-radius: 10px;
 padding-left: 10px;</string>
        </property>
@@ -663,9 +918,9 @@ color: rgb(255, 255, 255);</string>
      <zorder>ReportsArea</zorder>
      <zorder>StaffArea</zorder>
      <zorder>LogsArea</zorder>
-     <zorder>DashobardArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
+     <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
@@ -756,7 +1011,7 @@ color: rgb(255, 255, 255);</string>
        <string>ADMIN</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -765,7 +1020,7 @@ color: rgb(255, 255, 255);</string>
         <height>191</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="UserBtnSection">
        <item>
         <widget class="QPushButton" name="BtnDashboard">
          <property name="font">
@@ -880,7 +1135,7 @@ padding-left: 40px;</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -889,7 +1144,7 @@ padding-left: 40px;</string>
         <height>331</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="AdminBtnSection">
        <item>
         <widget class="QPushButton" name="BtnAnalytics">
          <property name="font">
@@ -1077,18 +1332,11 @@ padding-left: 40px;</string>
        </item>
       </layout>
      </widget>
-     <zorder>BtnRoom</zorder>
-     <zorder>BtnStudent</zorder>
-     <zorder>BtnAnalytics</zorder>
-     <zorder>BtnExpansion</zorder>
-     <zorder>BtnDashboard</zorder>
-     <zorder>BtnStaff</zorder>
-     <zorder>BtnReport</zorder>
-     <zorder>BtnLog</zorder>
+     <zorder>layoutWidget</zorder>
+     <zorder>layoutWidget</zorder>
      <zorder>Title</zorder>
      <zorder>LblNav1</zorder>
      <zorder>LblNav2</zorder>
-     <zorder>BtnSetCommon</zorder>
     </widget>
    </widget>
   </widget>
