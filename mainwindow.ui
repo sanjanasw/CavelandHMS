@@ -317,24 +317,208 @@
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
+         <x>70</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardiconb.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblAvailableRooms_2">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblReservedRooms_2">
+       <property name="geometry">
+        <rect>
+         <x>800</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>40</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(169, 171, 176);</string>
        </property>
        <property name="text">
-        <string>Rooms</string>
+        <string>Total Rooms</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardiconp.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="LblTotalRooms_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>60</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(28, 31, 55);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>40</y>
+         <width>70</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/img/img/dashboardicong.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>40</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(169, 171, 176);</string>
+       </property>
+       <property name="text">
+        <string>Available</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>790</x>
+         <y>40</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(169, 171, 176);</string>
+       </property>
+       <property name="text">
+        <string>Reserved</string>
        </property>
       </widget>
      </widget>
@@ -911,7 +1095,6 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </widget>
-     <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
      <zorder>AnalyticsArea</zorder>
      <zorder>ExpansionsArea</zorder>
@@ -920,6 +1103,7 @@ color: rgb(255, 255, 255);</string>
      <zorder>LogsArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
+     <zorder>RoomsArea</zorder>
      <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>

@@ -82,6 +82,9 @@ void MainWindow::on_BtnDashboard_clicked()
         ui->LblTotalRooms->setText(RoomData[0]);
         ui->LblReservedRooms->setText(RoomData[1]);
         ui->LblAvailableRooms->setText(RoomData[2]);
+        ui->LblTotalRooms_2->setText(RoomData[0]);
+        ui->LblReservedRooms_2->setText(RoomData[1]);
+        ui->LblAvailableRooms_2->setText(RoomData[2]);
 
         ui->LodingArea->hide();
     }
