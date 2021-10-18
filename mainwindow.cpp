@@ -7,6 +7,32 @@
 QString loggedInUserName;
 int loggedInUserId;
 
+//to populate data in Qtablewidget
+void populateData(QString query, QTableWidget* table, QString titles){
+    QSqlDatabase db = DBConnection::ConnectDb();
+    QSqlQueryModel * model = new QSqlQueryModel();
+    db.open();
+
+    model->setQuery(query);
+    table->setRowCount(model->rowCount());
+    table->setColumnCount(model->columnCount());
+    table->verticalHeader()->setVisible(false);
+    table->setHorizontalHeaderLabels(titles.split(";"));
+    for(int r =0; r < model->rowCount(); r++){
+        for(int c = 0; c < model->columnCount(); c++){
+
+            QString test = model->record(r).value(c).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(test);
+            item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+            table->setItem(r,c,item);
+            //qDebug() << r << c << test;
+        }
+    }
+
+    db.close();
+}
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -82,6 +108,19 @@ void MainWindow::on_BtnDashboard_clicked()
         ui->LblTotalRooms->setText(RoomData[0]);
         ui->LblReservedRooms->setText(RoomData[1]);
         ui->LblAvailableRooms->setText(RoomData[2]);
+        ui->LblTotalRooms_2->setText(RoomData[0]);
+        ui->LblReservedRooms_2->setText(RoomData[1]);
+        ui->LblAvailableRooms_2->setText(RoomData[2]);
+        ui->LblTotalRooms_3->setText(RoomData[0]);
+        ui->LblReservedRooms_3->setText(RoomData[1]);
+        ui->LblAvailableRooms_3->setText(RoomData[2]);
+        ui->LblBoysCount->setText(RoomData[3]);
+        ui->LblGirlsCount->setText(RoomData[4]);
+        ui->LblStaffCount->setText(RoomData[5]);
+
+        QString query = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
+
+        populateData(query, ui->TblUniversityData, "University;Students");
 
         ui->LodingArea->hide();
     }
