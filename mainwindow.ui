@@ -298,6 +298,44 @@
         </property>
        </layout>
       </widget>
+      <widget class="QTableWidget" name="TblUniversityData">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>140</y>
+         <width>431</width>
+         <height>361</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>19</pointsize>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="dragDropOverwriteMode">
+        <bool>false</bool>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="RoomsArea">
       <property name="geometry">
@@ -1493,9 +1531,9 @@ color: rgb(255, 255, 255);</string>
      <zorder>LogsArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
-     <zorder>DashobardArea</zorder>
      <zorder>RoomsArea</zorder>
      <zorder>AnalyticsArea</zorder>
+     <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
