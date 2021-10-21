@@ -118,9 +118,12 @@ void MainWindow::on_BtnDashboard_clicked()
         ui->LblGirlsCount->setText(RoomData[4]);
         ui->LblStaffCount->setText(RoomData[5]);
 
-        QString query = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
+        QString studentsCountQuery = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
+        QString buildingRoomDataQuery = "SELECT * FROM Building_Rooms";
 
-        populateData(query, ui->TblUniversityData, "University;Students");
+        populateData(studentsCountQuery, ui->TblUniversityData, "University;Students");
+        populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
+
 
         ui->LodingArea->hide();
     }
