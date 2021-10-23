@@ -3,9 +3,11 @@
 #include "dbconnection.h"
 #include "dashboarddata.h"
 #include "login.h"
+#include <QDateTime>
 
 QString loggedInUserName;
 int loggedInUserId;
+QDate cd = QDate::currentDate();
 
 //to populate data in Qtablewidget
 void populateData(QString query, QTableWidget* table, QString titles){
@@ -25,7 +27,7 @@ void populateData(QString query, QTableWidget* table, QString titles){
             QTableWidgetItem *item = new QTableWidgetItem(test);
             item->setFlags(item->flags() ^ Qt::ItemIsEditable);
             table->setItem(r,c,item);
-            //qDebug() << r << c << test;
+            qDebug() << r << c << test;
         }
     }
 
@@ -120,9 +122,11 @@ void MainWindow::on_BtnDashboard_clicked()
 
         QString studentsCountQuery = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
         QString buildingRoomDataQuery = "SELECT * FROM Building_Rooms";
+        QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
 
         populateData(studentsCountQuery, ui->TblUniversityData, "University;Students");
         populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
+        populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
 
 
         ui->LodingArea->hide();
@@ -428,6 +432,60 @@ void MainWindow::on_BtnLogOut_clicked()
         loggedInUserName = "";
 
         ui->LoginArea->show();
+    }
+
+}
+
+
+void MainWindow::on_TxtStudentId_textEdited(const QString &arg1)
+{
+    ui->BtnStudentSearch->setEnabled(true);
+}
+
+
+
+void MainWindow::on_CmbRange_currentTextChanged(const QString &arg1)
+{
+    if(arg1 == "This Month"){
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LogsArea->hide();
+        ui->LoginArea->hide();
+        ui->LodingArea->show();
+        ui->LblTitle->setText("Loading...");
+        ui->LblTitle->repaint();
+
+        QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
+        populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
+        ui->StudentsArea->show();
+        ui->LblTitle->setText("Students");
+
+    }else if(arg1 == "Last Month"){
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LogsArea->hide();
+        ui->LoginArea->hide();
+        ui->LodingArea->show();
+        ui->LblTitle->setText("Loading...");
+        ui->LblTitle->repaint();
+
+        QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.addMonths(-1).toString("yyyy-MM-01")+"' , @ToDate = '"+cd.toString("yyyy-MM-01")+"'";
+        populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
+        ui->StudentsArea->show();
+        ui->LblTitle->setText("Students");
+
     }
 
 }

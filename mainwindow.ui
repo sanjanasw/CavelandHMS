@@ -336,10 +336,10 @@
         <bool>true</bool>
        </property>
        <attribute name="horizontalHeaderMinimumSectionSize">
-        <number>107</number>
+        <number>142</number>
        </attribute>
        <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>147</number>
+        <number>178</number>
        </attribute>
       </widget>
      </widget>
@@ -608,7 +608,7 @@
         <number>43</number>
        </attribute>
        <attribute name="verticalHeaderDefaultSectionSize">
-        <number>39</number>
+        <number>43</number>
        </attribute>
       </widget>
      </widget>
@@ -627,28 +627,122 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QComboBox" name="CmbRange">
+       <property name="geometry">
+        <rect>
+         <x>740</x>
+         <y>20</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>This Month</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Last Month</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="BtnStudentSearch">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(1, 126, 250);
+border-radius: 10px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Find</string>
+       </property>
+      </widget>
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
+         <x>10</x>
+         <y>30</y>
+         <width>83</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
        </property>
        <property name="text">
-        <string>Students</string>
+        <string>Student</string>
        </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtStudentId">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>20</y>
+         <width>171</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="TblPaymentData">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>911</width>
+         <height>491</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>61</number>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>151</number>
+       </attribute>
       </widget>
      </widget>
      <widget class="QFrame" name="AnalyticsArea">
@@ -1576,7 +1670,6 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </widget>
-     <zorder>StudentsArea</zorder>
      <zorder>ExpansionsArea</zorder>
      <zorder>ReportsArea</zorder>
      <zorder>StaffArea</zorder>
@@ -1586,6 +1679,7 @@ color: rgb(255, 255, 255);</string>
      <zorder>AnalyticsArea</zorder>
      <zorder>DashobardArea</zorder>
      <zorder>RoomsArea</zorder>
+     <zorder>StudentsArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
