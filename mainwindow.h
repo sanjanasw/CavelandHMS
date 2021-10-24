@@ -5,7 +5,13 @@
 #include <QtCharts>
 #include <QChartView>
 #include <QPieSeries>
+#include <QLineSeries>
 #include <QMessageBox>
+
+#include "dbconnection.h"
+#include "dashboarddata.h"
+#include "login.h"
+#include "analyticsdata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,8 +39,6 @@ private slots:
     void on_BtnReport_clicked();
 
     void on_BtnStaff_clicked();
-
-    void on_BtnLog_clicked();
 
     void on_BtnLogin_clicked();
 

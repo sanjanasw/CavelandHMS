@@ -13,9 +13,26 @@ ALTER TABLE Accounts
 ADD CONSTRAINT FK_User_Id
 FOREIGN KEY (User_Id) REFERENCES Users(Id);
 
+
 INSERT INTO Accounts(Student_Id, User_Id, Paid_On)
 VALUES
-(1,1,'2021/10/04'),
+(1,1,'2021/04/04'),
+(2,1,'2021/04/05'),
+(3,1,'2021/04/04'),
+(4,1,'2021/04/05'),
+(1,1,'2021/06/04'),
+(2,1,'2021/06/05'),
+(3,1,'2021/06/04'),
+(4,1,'2021/06/05'),
+(5,1,'2021/06/04'),
+(6,1,'2021/06/05'),
+(1,1,'2021/07/04'),
+(2,1,'2021/07/05'),
+(3,1,'2021/07/04'),
+(4,1,'2021/07/05'),
+(5,1,'2021/07/04'),
+(6,1,'2021/07/05'),
+(1,1,'2021/08/04'),
 (2,1,'2021/08/05'),
 (3,1,'2021/08/04'),
 (4,1,'2021/08/05'),
@@ -29,10 +46,11 @@ VALUES
 (5,1,'2021/09/04'),
 (6,1,'2021/09/05'),
 (7,1,'2021/09/05'),
+(1,1,'2021/10/04'),
 (2,1,'2021/10/05'),
 (5,1,'2021/10/04');
 
-SELECT s.Name,
+SELECT s.Name, s.Room_Id, s.Tp, s.University,
     (SELECT
         (SELECT b.Name FROM Buildings b WHERE b.Id =  r.Building_Id)
     FROM Rooms r WHERE r.Id =  s.Room_Id) AS Building,
@@ -57,13 +75,14 @@ CREATE PROCEDURE GetPaymentStatus
 @FromDate DATETIME,
 @ToDate DATETIME
 AS
-SELECT s.Name,
+SELECT s.Name, s.Room_Id,
     (SELECT
         (SELECT b.Name FROM Buildings b WHERE b.Id =  r.Building_Id)
     FROM Rooms r WHERE r.Id =  s.Room_Id) AS Building,
+     s.Tp, s.University,
     CASE 
         WHEN x.Paid_On IS NULL
-            THEN 'NOT'
+            THEN 'NOT PAID'
             ELSE 'PAID' END AS 'STATUS'
 FROM Students s
     LEFT JOIN
@@ -71,5 +90,6 @@ FROM Students s
         WHERE  a.Paid_On  BETWEEN  @FromDate AND @ToDate
         ) x ON s.Id = x.Student_Id
 GO
+
 
 EXEC GetPaymentStatus @FromDate = '2021-10-01' , @ToDate = '2021-11-01'

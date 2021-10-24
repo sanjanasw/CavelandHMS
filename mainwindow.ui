@@ -274,7 +274,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QFrame" name="GenderChart">
+      <widget class="QFrame" name="CrtGender">
        <property name="geometry">
         <rect>
          <x>60</x>
@@ -1174,6 +1174,17 @@ padding-left: 10px;</string>
         <string>staff</string>
        </property>
       </widget>
+      <widget class="QFrame" name="CrtRevenue">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>851</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+      </widget>
      </widget>
      <widget class="QFrame" name="ExpansionsArea">
       <property name="geometry">
@@ -1289,45 +1300,6 @@ padding-left: 10px;</string>
        </property>
        <property name="text">
         <string>Staff</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QFrame" name="LogsArea">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>951</width>
-        <height>701</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Logs</string>
        </property>
       </widget>
      </widget>
@@ -1673,13 +1645,12 @@ color: rgb(255, 255, 255);</string>
      <zorder>ExpansionsArea</zorder>
      <zorder>ReportsArea</zorder>
      <zorder>StaffArea</zorder>
-     <zorder>LogsArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
-     <zorder>AnalyticsArea</zorder>
-     <zorder>DashobardArea</zorder>
      <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
+     <zorder>AnalyticsArea</zorder>
+     <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
@@ -1900,7 +1871,7 @@ padding-left: 40px;</string>
         <x>20</x>
         <y>320</y>
         <width>231</width>
-        <height>331</height>
+        <height>261</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="AdminBtnSection">
@@ -2043,43 +2014,6 @@ padding-left: 40px;</string>
          <property name="icon">
           <iconset resource="resource.qrc">
            <normaloff>:/img/img/User_add.png</normaloff>:/img/img/User_add.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>35</width>
-           <height>35</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="BtnLog">
-         <property name="font">
-          <font>
-           <family>Franklin Gothic Medium</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="mouseTracking">
-          <bool>false</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 40px;</string>
-         </property>
-         <property name="text">
-          <string>Logs</string>
-         </property>
-         <property name="icon">
-          <iconset resource="resource.qrc">
-           <normaloff>:/img/img/Order.png</normaloff>:/img/img/Order.png</iconset>
          </property>
          <property name="iconSize">
           <size>

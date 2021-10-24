@@ -7,7 +7,6 @@ class DBConnection
 {
 public:
     DBConnection();
-public:
     static QSqlDatabase ConnectDb();
 };
 
