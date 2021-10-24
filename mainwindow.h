@@ -40,8 +40,6 @@ private slots:
 
     void on_BtnStaff_clicked();
 
-    void on_BtnLog_clicked();
-
     void on_BtnLogin_clicked();
 
     void on_BtnLogOut_clicked();
