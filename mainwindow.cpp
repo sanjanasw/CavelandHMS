@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dbconnection.h"
-#include "dashboarddata.h"
-#include "login.h"
+
 #include <QDateTime>
 
 QString loggedInUserName;
@@ -99,12 +97,23 @@ void MainWindow::on_BtnDashboard_clicked()
         dashboarddata::getDashboardData();
 
 
-        QChart *chart = new QChart();
-        chart->addSeries(dashboarddata::getGenderChart());
+        QChart* genderChart = new QChart();
+        genderChart->addSeries(dashboarddata::getGenderChart());
 
-        QChartView *chartview = new QChartView(chart);
-        chartview->setMaximumSize(ui->GenderChart->size());
-        chartview->setParent(ui->GenderChart);
+        QChartView* genderChartview = new QChartView(genderChart);
+        genderChartview->setMaximumSize(ui->CrtGender->size());
+        genderChartview->setParent(ui->CrtGender);
+
+
+        QChart* revenueChart = new QChart();
+        revenueChart->legend()->hide();
+        revenueChart->addSeries(analyticsdata::getAnalyticsData());
+        revenueChart->createDefaultAxes();
+
+        QChartView* revenueChartView = new QChartView(revenueChart);
+        revenueChartView->setRenderHint(QPainter::Antialiasing);
+        revenueChartView->setMaximumSize(ui->CrtRevenue->size());
+        revenueChartView->setParent(ui->CrtRevenue);
 
         QString* RoomData = dashboarddata::getRoomData();
         ui->LblTotalRooms->setText(RoomData[0]);

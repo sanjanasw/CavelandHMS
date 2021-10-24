@@ -274,7 +274,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QFrame" name="GenderChart">
+      <widget class="QFrame" name="CrtGender">
        <property name="geometry">
         <rect>
          <x>60</x>
@@ -1174,6 +1174,17 @@ padding-left: 10px;</string>
         <string>staff</string>
        </property>
       </widget>
+      <widget class="QFrame" name="CrtRevenue">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>851</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+      </widget>
      </widget>
      <widget class="QFrame" name="ExpansionsArea">
       <property name="geometry">
@@ -1676,10 +1687,10 @@ color: rgb(255, 255, 255);</string>
      <zorder>LogsArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
-     <zorder>AnalyticsArea</zorder>
-     <zorder>DashobardArea</zorder>
      <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
+     <zorder>AnalyticsArea</zorder>
+     <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
