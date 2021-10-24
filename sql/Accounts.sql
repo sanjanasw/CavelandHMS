@@ -32,7 +32,7 @@ VALUES
 (2,1,'2021/10/05'),
 (5,1,'2021/10/04');
 
-SELECT s.Name,
+SELECT s.Name, s.Room_Id, s.Tp, s.University,
     (SELECT
         (SELECT b.Name FROM Buildings b WHERE b.Id =  r.Building_Id)
     FROM Rooms r WHERE r.Id =  s.Room_Id) AS Building,
@@ -57,13 +57,14 @@ CREATE PROCEDURE GetPaymentStatus
 @FromDate DATETIME,
 @ToDate DATETIME
 AS
-SELECT s.Name,
+SELECT s.Name, s.Room_Id,
     (SELECT
         (SELECT b.Name FROM Buildings b WHERE b.Id =  r.Building_Id)
     FROM Rooms r WHERE r.Id =  s.Room_Id) AS Building,
+     s.Tp, s.University,
     CASE 
         WHEN x.Paid_On IS NULL
-            THEN 'NOT'
+            THEN 'NOT PAID'
             ELSE 'PAID' END AS 'STATUS'
 FROM Students s
     LEFT JOIN
@@ -71,5 +72,6 @@ FROM Students s
         WHERE  a.Paid_On  BETWEEN  @FromDate AND @ToDate
         ) x ON s.Id = x.Student_Id
 GO
+
 
 EXEC GetPaymentStatus @FromDate = '2021-10-01' , @ToDate = '2021-11-01'
