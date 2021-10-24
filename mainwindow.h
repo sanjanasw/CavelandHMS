@@ -40,6 +40,11 @@ private slots:
 
     void on_BtnLogOut_clicked();
 
+    void on_TxtStudentId_textEdited(const QString &arg1);
+
+
+    void on_CmbRange_currentTextChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };
