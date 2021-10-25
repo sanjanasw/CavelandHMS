@@ -1279,28 +1279,27 @@ padding-left: 10px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="label_10">
+      <widget class="QTableWidget" name="TblStaff">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
+         <x>20</x>
+         <y>10</y>
+         <width>911</width>
+         <height>271</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>15</pointsize>
         </font>
        </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Staff</string>
-       </property>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>212</number>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>223</number>
+       </attribute>
       </widget>
      </widget>
      <widget class="QFrame" name="main_header">
@@ -1642,16 +1641,16 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </widget>
+     <zorder>AnalyticsArea</zorder>
      <zorder>ExpansionsArea</zorder>
-     <zorder>ReportsArea</zorder>
-     <zorder>StaffArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
      <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
-     <zorder>AnalyticsArea</zorder>
      <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
+     <zorder>ReportsArea</zorder>
+     <zorder>StaffArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
      <property name="geometry">

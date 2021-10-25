@@ -128,11 +128,12 @@ void MainWindow::on_BtnDashboard_clicked()
         QString studentsCountQuery = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
         QString buildingRoomDataQuery = "SELECT * FROM Building_Rooms";
         QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
+        QString getStaffData = "SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1";
 
         populateData(studentsCountQuery, ui->TblUniversityData, "University;Students");
         populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
-
+        populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
 
         ui->LodingArea->hide();
     }
