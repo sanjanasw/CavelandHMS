@@ -16,17 +16,20 @@ SOURCES += \
     dbconnection.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    popupwindow.cpp
 
 HEADERS += \
     analyticsdata.h \
     dashboarddata.h \
     dbconnection.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    popupwindow.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    popupwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
