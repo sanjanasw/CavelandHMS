@@ -144,5 +144,6 @@ GROUP BY x.Building_Id, x.Room_Type;
 
 SELECT DISTINCT s.Room_Id, r.Room_Type, r.Building_Id FROM Students s JOIN Rooms r ON s.Room_Id = r.Id;
 
-
+ 
+SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1;
 

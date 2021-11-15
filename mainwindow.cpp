@@ -4,6 +4,7 @@
 #include <QDateTime>
 
 QString loggedInUserName;
+QStringList outputData;
 int loggedInUserId;
 QDate cd = QDate::currentDate();
 
@@ -440,5 +441,24 @@ void MainWindow::on_CmbRange_currentTextChanged(const QString &arg1)
 
     }
 
+}
+
+
+void MainWindow::on_BtnNewAdmission_clicked()
+{
+    outputData.clear();
+    outputData.append("1");
+    PopUpWindow* p = new PopUpWindow(outputData);
+    p->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    p->show();
+}
+
+
+void MainWindow::on_BtnNewAdmission_2_clicked()
+{
+    outputData.clear();
+    outputData.append("2");
+    PopUpWindow* p = new PopUpWindow(outputData);
+    p->show();
 }
 

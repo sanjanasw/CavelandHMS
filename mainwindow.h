@@ -12,6 +12,7 @@
 #include "dashboarddata.h"
 #include "login.h"
 #include "analyticsdata.h"
+#include "popupwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -48,6 +49,10 @@ private slots:
 
 
     void on_CmbRange_currentTextChanged(const QString &arg1);
+
+    void on_BtnNewAdmission_clicked();
+
+    void on_BtnNewAdmission_2_clicked();
 
 private:
     Ui::MainWindow *ui;
