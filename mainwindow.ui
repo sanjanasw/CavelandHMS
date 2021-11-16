@@ -614,27 +614,61 @@
       <widget class="QPushButton" name="BtnNewAdmission">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>70</x>
          <y>190</y>
-         <width>151</width>
-         <height>25</height>
+         <width>150</width>
+         <height>40</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(1, 126, 250);
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
        </property>
        <property name="text">
         <string>New Admission</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="BtnNewAdmission_2">
+      <widget class="QPushButton" name="BtnCollectRental">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>400</x>
          <y>190</y>
-         <width>151</width>
-         <height>25</height>
+         <width>150</width>
+         <height>40</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(253, 31, 155);
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
        </property>
        <property name="text">
         <string>Collect Rental</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnNewAdmission_3">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>190</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(99, 66, 255);
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
+       </property>
+       <property name="text">
+        <string>Leaving From Room</string>
        </property>
       </widget>
      </widget>
