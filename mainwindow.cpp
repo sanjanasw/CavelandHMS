@@ -449,15 +449,23 @@ void MainWindow::on_BtnNewAdmission_clicked()
     outputData.clear();
     outputData.append("1");
     PopUpWindow* p = new PopUpWindow(outputData);
-    p->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     p->show();
 }
 
 
-void MainWindow::on_BtnNewAdmission_2_clicked()
+void MainWindow::on_BtnCollectRental_clicked()
 {
     outputData.clear();
     outputData.append("2");
+    PopUpWindow* p = new PopUpWindow(outputData);
+    p->show();
+}
+
+
+void MainWindow::on_BtnNewAdmission_3_clicked()
+{
+    outputData.clear();
+    outputData.append("3");
     PopUpWindow* p = new PopUpWindow(outputData);
     p->show();
 }

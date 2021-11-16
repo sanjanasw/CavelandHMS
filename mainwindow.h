@@ -52,7 +52,9 @@ private slots:
 
     void on_BtnNewAdmission_clicked();
 
-    void on_BtnNewAdmission_2_clicked();
+    void on_BtnCollectRental_clicked();
+
+    void on_BtnNewAdmission_3_clicked();
 
 private:
     Ui::MainWindow *ui;
