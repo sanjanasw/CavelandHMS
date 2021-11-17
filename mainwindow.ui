@@ -1706,11 +1706,11 @@ color: rgb(255, 255, 255);</string>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
      <zorder>StudentsArea</zorder>
-     <zorder>DashobardArea</zorder>
      <zorder>ReportsArea</zorder>
      <zorder>StaffArea</zorder>
-     <zorder>LoginArea</zorder>
      <zorder>RoomsArea</zorder>
+     <zorder>DashobardArea</zorder>
+     <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
      <property name="geometry">

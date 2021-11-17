@@ -24,6 +24,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void MainWindow::loading(bool loading);
+    void MainWindow::setupButtons();
     ~MainWindow();
 
 private slots:

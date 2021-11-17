@@ -68,29 +68,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_BtnDashboard_clicked()
 {
-    //buttons
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-
-
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
-
+    setupButtons();
 
     if(dashboarddata::getGenderChart()->isEmpty()){
-        ui->LodingArea->show();
-        ui->LblTitle->setText("Loading...");
-        ui->LblTitle->repaint();
+        loading(true);
         dashboarddata::getDashboardData();
 
 
@@ -136,7 +117,7 @@ void MainWindow::on_BtnDashboard_clicked()
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
         populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
 
-        ui->LodingArea->hide();
+        loading(false);
     }
     ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
     ui->LblTitle->setText("Dashboard");
@@ -146,24 +127,10 @@ void MainWindow::on_BtnDashboard_clicked()
 
 void MainWindow::on_BtnRoom_clicked()
 {
-    //buttons
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-
+    setupButtons();
     ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Rooms");
     ui->RoomsArea->show();
 }
@@ -171,23 +138,10 @@ void MainWindow::on_BtnRoom_clicked()
 
 void MainWindow::on_BtnStudent_clicked()
 {
-    //buttons
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    setupButtons();
     ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Students");
     ui->StudentsArea->show();
 }
@@ -195,23 +149,10 @@ void MainWindow::on_BtnStudent_clicked()
 
 void MainWindow::on_BtnAnalytics_clicked()
 {
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-
+    setupButtons();
     ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Analytics");
     ui->AnalyticsArea->show();
 }
@@ -219,23 +160,10 @@ void MainWindow::on_BtnAnalytics_clicked()
 
 void MainWindow::on_BtnExpansion_clicked()
 {
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-
+    setupButtons();
     ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Expansions");
     ui->ExpansionsArea->show();
 }
@@ -243,22 +171,10 @@ void MainWindow::on_BtnExpansion_clicked()
 
 void MainWindow::on_BtnReport_clicked()
 {
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    setupButtons();
     ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->StaffArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Reports");
     ui->ReportsArea->show();
 }
@@ -266,22 +182,10 @@ void MainWindow::on_BtnReport_clicked()
 
 void MainWindow::on_BtnStaff_clicked()
 {
-    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    setupButtons();
     ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
 
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->hide();
+    loading(false);
     ui->LblTitle->setText("Staff");
     ui->StaffArea->show();
 }
@@ -293,18 +197,7 @@ void MainWindow::on_BtnLogin_clicked()
     QString Password = ui->TxtPassword->text();
     ui->TxtUserName->clear();
     ui->TxtPassword->clear();
-    ui->DashobardArea->hide();
-    ui->RoomsArea->hide();
-    ui->StudentsArea->hide();
-    ui->AnalyticsArea->hide();
-    ui->ExpansionsArea->hide();
-    ui->ReportsArea->hide();
-    ui->StaffArea->hide();
-    ui->LodingArea->hide();
-    ui->LoginArea->hide();
-    ui->LodingArea->show();
-    ui->LblTitle->setText("Loading...");
-    ui->LblTitle->repaint();
+    loading(true);
     QString* UserData = Login::UserLogin(UserName, Password);
     int loginStatus = UserData[0].toInt();
     loggedInUserId = UserData[1].toInt();
@@ -315,9 +208,6 @@ void MainWindow::on_BtnLogin_clicked()
         ui->BtnDashboard->setEnabled(true);
         ui->BtnRoom->setEnabled(true);
         ui->BtnStudent->setEnabled(true);
-//        ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
-//        ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-//        ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
         ui->LblUserName->setText("Hi,"+ loggedInUserName +"!");
         ui->BtnLogOut->setVisible(true);
 
@@ -371,14 +261,7 @@ void MainWindow::on_BtnLogOut_clicked()
         ui->BtnExpansion->setVisible(false);
         ui->BtnReport->setVisible(false);
         ui->BtnStaff->setVisible(false);
-        ui->DashobardArea->hide();
-        ui->RoomsArea->hide();
-        ui->StudentsArea->hide();
-        ui->AnalyticsArea->hide();
-        ui->ExpansionsArea->hide();
-        ui->ReportsArea->hide();
-        ui->StaffArea->hide();
-        ui->LodingArea->hide();
+        loading(false);
 
         ui->LblUserName->setText("");
         ui->BtnLogOut->setVisible(false);
@@ -402,40 +285,22 @@ void MainWindow::on_TxtStudentId_textEdited(const QString &arg1)
 void MainWindow::on_CmbRange_currentTextChanged(const QString &arg1)
 {
     if(arg1 == "This Month"){
-        ui->DashobardArea->hide();
-        ui->RoomsArea->hide();
-        ui->StudentsArea->hide();
-        ui->AnalyticsArea->hide();
-        ui->ExpansionsArea->hide();
-        ui->ReportsArea->hide();
-        ui->StaffArea->hide();
-        ui->LodingArea->hide();
-        ui->LoginArea->hide();
-        ui->LodingArea->show();
-        ui->LblTitle->setText("Loading...");
-        ui->LblTitle->repaint();
+        loading(true);
 
         QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
+
+        loading(false);
         ui->StudentsArea->show();
         ui->LblTitle->setText("Students");
 
     }else if(arg1 == "Last Month"){
-        ui->DashobardArea->hide();
-        ui->RoomsArea->hide();
-        ui->StudentsArea->hide();
-        ui->AnalyticsArea->hide();
-        ui->ExpansionsArea->hide();
-        ui->ReportsArea->hide();
-        ui->StaffArea->hide();
-        ui->LodingArea->hide();
-        ui->LoginArea->hide();
-        ui->LodingArea->show();
-        ui->LblTitle->setText("Loading...");
-        ui->LblTitle->repaint();
+        loading(true);
 
         QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.addMonths(-1).toString("yyyy-MM-01")+"' , @ToDate = '"+cd.toString("yyyy-MM-01")+"'";
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
+
+        loading(false);
         ui->StudentsArea->show();
         ui->LblTitle->setText("Students");
 
@@ -470,3 +335,43 @@ void MainWindow::on_BtnNewAdmission_3_clicked()
     p->show();
 }
 
+//loading screen
+void MainWindow::loading(bool loading){
+    if(loading){
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LoginArea->hide();
+        ui->LodingArea->show();
+        ui->LblTitle->setText("Loading...");
+        ui->LblTitle->repaint();
+    }else{
+        ui->DashobardArea->hide();
+        ui->RoomsArea->hide();
+        ui->StudentsArea->hide();
+        ui->AnalyticsArea->hide();
+        ui->ExpansionsArea->hide();
+        ui->ReportsArea->hide();
+        ui->StaffArea->hide();
+        ui->LodingArea->hide();
+        ui->LoginArea->hide();
+        ui->LodingArea->hide();
+    }
+
+}
+
+//setup Buttons
+void MainWindow::setupButtons(){
+    ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnRoom->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px; \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+    ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
+}
