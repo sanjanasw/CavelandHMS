@@ -17,7 +17,8 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    popupwindow.cpp
+    popupwindow.cpp \
+    studentsdata.cpp
 
 HEADERS += \
     analyticsdata.h \
@@ -25,7 +26,8 @@ HEADERS += \
     dbconnection.h \
     login.h \
     mainwindow.h \
-    popupwindow.h
+    popupwindow.h \
+    studentsdata.h
 
 FORMS += \
     mainwindow.ui \
@@ -38,3 +40,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES += \
+    img/29299 1.png \
+    img/5293 1.png

@@ -7,6 +7,7 @@
 #include <QPieSeries>
 #include <QLineSeries>
 #include <QMessageBox>
+#include <QDateTime>
 
 #include "dbconnection.h"
 #include "dashboarddata.h"
@@ -24,6 +25,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void loading(bool loading);
+    void setupButtons();
     ~MainWindow();
 
 private slots:
@@ -37,8 +40,6 @@ private slots:
 
     void on_BtnExpansion_clicked();
 
-    void on_BtnReport_clicked();
-
     void on_BtnStaff_clicked();
 
     void on_BtnLogin_clicked();
@@ -47,7 +48,6 @@ private slots:
 
     void on_TxtStudentId_textEdited(const QString &arg1);
 
-
     void on_CmbRange_currentTextChanged(const QString &arg1);
 
     void on_BtnNewAdmission_clicked();
@@ -55,6 +55,8 @@ private slots:
     void on_BtnCollectRental_clicked();
 
     void on_BtnNewAdmission_3_clicked();
+
+    void on_BtnStudentSearch_clicked();
 
 private:
     Ui::MainWindow *ui;

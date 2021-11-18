@@ -1285,45 +1285,6 @@ padding-left: 10px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QFrame" name="ReportsArea">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>951</width>
-        <height>711</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Reports</string>
-       </property>
-      </widget>
-     </widget>
      <widget class="QFrame" name="StaffArea">
       <property name="geometry">
        <rect>
@@ -1705,12 +1666,11 @@ color: rgb(255, 255, 255);</string>
      <zorder>ExpansionsArea</zorder>
      <zorder>main_header</zorder>
      <zorder>LodingArea</zorder>
-     <zorder>StudentsArea</zorder>
      <zorder>DashobardArea</zorder>
-     <zorder>ReportsArea</zorder>
+     <zorder>RoomsArea</zorder>
+     <zorder>StudentsArea</zorder>
      <zorder>StaffArea</zorder>
      <zorder>LoginArea</zorder>
-     <zorder>RoomsArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
      <property name="geometry">
@@ -1930,7 +1890,7 @@ padding-left: 40px;</string>
         <x>20</x>
         <y>320</y>
         <width>231</width>
-        <height>261</height>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="AdminBtnSection">
@@ -1999,43 +1959,6 @@ padding-left: 40px;</string>
          <property name="icon">
           <iconset resource="resource.qrc">
            <normaloff>:/img/img/Pressure.png</normaloff>:/img/img/Pressure.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>35</width>
-           <height>35</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="BtnReport">
-         <property name="font">
-          <font>
-           <family>Franklin Gothic Medium</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="mouseTracking">
-          <bool>false</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(8, 26, 81);
-color: rgb(255, 255, 255);
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
-text-align: left;
-padding-left: 40px;</string>
-         </property>
-         <property name="text">
-          <string>Reports</string>
-         </property>
-         <property name="icon">
-          <iconset resource="resource.qrc">
-           <normaloff>:/img/img/Folder_alt.png</normaloff>:/img/img/Folder_alt.png</iconset>
          </property>
          <property name="iconSize">
           <size>
