@@ -1708,9 +1708,9 @@ color: rgb(255, 255, 255);</string>
      <zorder>StudentsArea</zorder>
      <zorder>ReportsArea</zorder>
      <zorder>StaffArea</zorder>
-     <zorder>RoomsArea</zorder>
      <zorder>DashobardArea</zorder>
      <zorder>LoginArea</zorder>
+     <zorder>RoomsArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">
      <property name="geometry">

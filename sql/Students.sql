@@ -1,3 +1,4 @@
+USE CHMS;
 --trigger for age and gender
 CREATE trigger getage
 ON Students
@@ -74,3 +75,20 @@ FOREIGN KEY (Room_Id) REFERENCES Rooms(Id);
 
 
 SELECT * FROM Students
+
+
+--procedure for insert data
+CREATE PROCEDURE newAdmission
+@Name VARCHAR(100),
+@Nic_No VARCHAR(12),
+@Address VARCHAR(250),
+@Tp INT,
+@Email VARCHAR(100),
+@University VARCHAR(80),
+@Room_Id INT
+AS
+	INSERT INTO Students(Name, Nic_No, Address, Tp, Email, University, Room_Id) VALUES (@Name, @NiC_No, @Address, @Tp, @Email, @University, @Room_Id)
+GO
+
+EXEC newAdmission @Name = 'Iraj Weerarathne', @Nic_No = '773181098v', @Address = '178, Middle Street, Homagama.',@Tp = 0771119181, @Email = 'iraj@noize.com', @University = 'NSBM', @Room_Id = 4;
+SELECT TOP(1) *, (SELECT rental FROM Rooms WHERE Id = Room_Id) AS Rental FROM Students ORDER BY Id DESC;

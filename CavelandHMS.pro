@@ -17,7 +17,8 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    popupwindow.cpp
+    popupwindow.cpp \
+    studentsdata.cpp
 
 HEADERS += \
     analyticsdata.h \
@@ -25,7 +26,8 @@ HEADERS += \
     dbconnection.h \
     login.h \
     mainwindow.h \
-    popupwindow.h
+    popupwindow.h \
+    studentsdata.h
 
 FORMS += \
     mainwindow.ui \

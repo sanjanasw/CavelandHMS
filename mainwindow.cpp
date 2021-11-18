@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QDateTime>
-
 QString loggedInUserName;
 QStringList outputData;
 int loggedInUserId;

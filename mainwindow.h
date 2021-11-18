@@ -7,6 +7,7 @@
 #include <QPieSeries>
 #include <QLineSeries>
 #include <QMessageBox>
+#include <QDateTime>
 
 #include "dbconnection.h"
 #include "dashboarddata.h"
@@ -24,8 +25,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void MainWindow::loading(bool loading);
-    void MainWindow::setupButtons();
+    void loading(bool loading);
+    void setupButtons();
     ~MainWindow();
 
 private slots:
@@ -48,7 +49,6 @@ private slots:
     void on_BtnLogOut_clicked();
 
     void on_TxtStudentId_textEdited(const QString &arg1);
-
 
     void on_CmbRange_currentTextChanged(const QString &arg1);
 
