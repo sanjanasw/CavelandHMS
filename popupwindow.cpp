@@ -1,6 +1,6 @@
 #include "popupwindow.h"
 #include "ui_popupwindow.h"
-
+#include <QDebug>
 QStringList inputData;
 
 PopUpWindow::PopUpWindow(QWidget *parent) :
@@ -28,11 +28,27 @@ PopUpWindow::PopUpWindow(QStringList inData) :
         ui->LblTitle->setText("Collect Rental");
         ui->CollectRental->show();
         break;
-        case 3:
+      case 3:
         loading(false);
-          ui->LblTitle->setText("Leaving From Room");
-          ui->Leaving->show();
-          break;
+        ui->LblTitle->setText("Leaving From Room");
+        ui->Leaving->show();
+        break;
+      case 4:
+        loading(false);
+        ui->LblTitle->setText("Find Student");
+        ui->LblFName->setText(ui->LblFName->text()+inData[2]);
+        ui->LblFAdmission->setText(ui->LblFAdmission->text()+inData[1]);
+        ui->LblFBuilding->setText(ui->LblFBuilding->text()+inData[11]);
+        ui->LblFRoom->setText(ui->LblFRoom->text()+inData[8]);
+        ui->LblFNic->setText(ui->LblFNic->text()+inData[3]);
+        ui->LblFGender->setText(ui->LblFGender->text()+(inData[9]=="M"?"MALE":"FEMALE"));
+        ui->LblFAge->setText(ui->LblFAge->text()+inData[10]);
+        ui->LblFUniversity->setText(ui->LblFUniversity->text()+inData[7]);
+        ui->LblFEmail->setText(ui->LblFEmail->text()+inData[6]);
+        ui->LblFTp->setText(ui->LblFTp->text()+inData[5]);
+        ui->LblFAddress->setText(ui->LblFAddress->text()+inData[4]);
+        ui->FindStudent->show();
+        break;
       default:
         PopUpWindow::close();;
     }
@@ -70,6 +86,8 @@ void PopUpWindow::loading(bool loading){
         ui->CollectRental->hide();
         ui->Leaving->hide();
         ui->NewAdmissionSuccess->hide();
+        ui->Staff->hide();
+        ui->FindStudent->hide();
         ui->Loading->show();
         ui->LblTitle->setText("Loading...");
         ui->LblTitle->repaint();
@@ -79,14 +97,16 @@ void PopUpWindow::loading(bool loading){
         ui->Leaving->hide();
         ui->NewAdmissionSuccess->hide();
         ui->Loading->hide();
+        ui->Staff->hide();
+        ui->FindStudent->hide();
     }
 
 }
 
 void PopUpWindow::populateCmbBuilding(){
     loading(true);
-    ui->CmbBuliding->addItem("SELECT BUILDING");
     QSqlDatabase db = DBConnection::ConnectDb();
+    ui->CmbBuliding->addItem("SELECT BUILDING");
      try {
          if(db.open()){
              QSqlQuery query;
@@ -104,8 +124,8 @@ void PopUpWindow::populateCmbBuilding(){
 }
 
 void PopUpWindow::populateCmbRoom(int building){
-    ui->CmbRoom->addItem("SELECT ROOM");
     QSqlDatabase db = DBConnection::ConnectDb();
+    ui->CmbRoom->addItem("SELECT ROOM");
      try {
          if(db.open()){
              QSqlQuery query;
@@ -155,8 +175,44 @@ void PopUpWindow::on_BtnAdmissionSubmit_clicked()
     newData.append(ui->CmbRoom->currentText());
     QStringList newStudent = StudentsData::AddNewUser(newData);
     newData.clear();
-    adminSuccess(newStudent);
-    newStudent.clear();
+    if(newStudent[0] != "0"){
+        adminSuccess(newStudent);
+        newStudent.clear();
+    }else{
+        ui->LblTitle->setText("New Admission");
+        ui->NewAdmission->show();
+    }
 
+}
+
+
+void PopUpWindow::on_BtnClose2_2_clicked()
+{
+    PopUpWindow::close();
+}
+
+
+void PopUpWindow::on_BtnCollect_clicked()
+{
+    loading(true);
+    QSqlDatabase db = DBConnection::ConnectDb();
+     try {
+         if(db.open()){
+             QSqlQuery query;
+             query.exec("EXEC CollectPaymentStatus @st="+ui->TxtAdmission->text()+", @Id="+inputData[1]+";");
+             if (!db.driver()->hasFeature(QSqlDriver::QuerySize)) {
+                 PopUpWindow::close();
+             }
+         }
+         db.close();
+        }  catch (...) {
+    }
+
+
+}
+
+void PopUpWindow::on_BtnNewAdmission_3_clicked()
+{
+    PopUpWindow::close();
 }
 

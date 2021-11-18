@@ -45,14 +45,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BtnStudent->setEnabled(false);
     ui->BtnAnalytics->setEnabled(false);
     ui->BtnExpansion->setEnabled(false);
-    ui->BtnReport->setEnabled(false);
     ui->BtnStaff->setEnabled(false);
 
     //adminArea
     ui->LblNav2->setVisible(false);
     ui->BtnAnalytics->setVisible(false);
     ui->BtnExpansion->setVisible(false);
-    ui->BtnReport->setVisible(false);
     ui->BtnStaff->setVisible(false);
 
     //logout
@@ -166,18 +164,6 @@ void MainWindow::on_BtnExpansion_clicked()
     ui->ExpansionsArea->show();
 }
 
-
-void MainWindow::on_BtnReport_clicked()
-{
-    setupButtons();
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
-
-    loading(false);
-    ui->LblTitle->setText("Reports");
-    ui->ReportsArea->show();
-}
-
-
 void MainWindow::on_BtnStaff_clicked()
 {
     setupButtons();
@@ -214,12 +200,10 @@ void MainWindow::on_BtnLogin_clicked()
             ui->LblNav2->setVisible(true);
             ui->BtnAnalytics->setVisible(true);
             ui->BtnExpansion->setVisible(true);
-            ui->BtnReport->setVisible(true);
             ui->BtnStaff->setVisible(true);
 
             ui->BtnAnalytics->setEnabled(true);
             ui->BtnExpansion->setEnabled(true);
-            ui->BtnReport->setEnabled(true);
             ui->BtnStaff->setEnabled(true);
 
         }
@@ -250,14 +234,12 @@ void MainWindow::on_BtnLogOut_clicked()
         ui->BtnStudent->setEnabled(false);
         ui->BtnAnalytics->setEnabled(false);
         ui->BtnExpansion->setEnabled(false);
-        ui->BtnReport->setEnabled(false);
         ui->BtnStaff->setEnabled(false);
 
         //adminArea
         ui->LblNav2->setVisible(false);
         ui->BtnAnalytics->setVisible(false);
         ui->BtnExpansion->setVisible(false);
-        ui->BtnReport->setVisible(false);
         ui->BtnStaff->setVisible(false);
         loading(false);
 
@@ -320,6 +302,7 @@ void MainWindow::on_BtnCollectRental_clicked()
 {
     outputData.clear();
     outputData.append("2");
+    outputData.append(QString::number(loggedInUserId));
     PopUpWindow* p = new PopUpWindow(outputData);
     p->show();
 }
@@ -341,7 +324,6 @@ void MainWindow::loading(bool loading){
         ui->StudentsArea->hide();
         ui->AnalyticsArea->hide();
         ui->ExpansionsArea->hide();
-        ui->ReportsArea->hide();
         ui->StaffArea->hide();
         ui->LodingArea->hide();
         ui->LoginArea->hide();
@@ -354,7 +336,6 @@ void MainWindow::loading(bool loading){
         ui->StudentsArea->hide();
         ui->AnalyticsArea->hide();
         ui->ExpansionsArea->hide();
-        ui->ReportsArea->hide();
         ui->StaffArea->hide();
         ui->LodingArea->hide();
         ui->LoginArea->hide();
@@ -370,6 +351,26 @@ void MainWindow::setupButtons(){
     ui->BtnStudent->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
     ui->BtnAnalytics->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
     ui->BtnExpansion->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
-    ui->BtnReport->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
     ui->BtnStaff->setStyleSheet("QPushButton{ background-color: rgb(8, 26, 81); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;} \n QPushButton:hover{background-color: rgb(27, 43, 101);}");
 }
+
+void MainWindow::on_BtnStudentSearch_clicked()
+{
+    loading(true);
+    outputData.clear();
+    outputData = StudentsData::FindNewUser(ui->TxtStudentId->text());
+    ui->TxtStudentId->clear();
+    if(outputData[0] != "0"){
+        PopUpWindow* p = new PopUpWindow(outputData);
+        p->show();
+    }else{
+        QMessageBox Msgbox;
+        Msgbox.setText("Incorrect Admission Number!!");
+        Msgbox.exec();
+    }
+    loading(false);
+    ui->LblTitle->setText("Students");
+    ui->StudentsArea->show();
+
+}
+

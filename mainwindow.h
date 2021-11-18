@@ -40,8 +40,6 @@ private slots:
 
     void on_BtnExpansion_clicked();
 
-    void on_BtnReport_clicked();
-
     void on_BtnStaff_clicked();
 
     void on_BtnLogin_clicked();
@@ -57,6 +55,8 @@ private slots:
     void on_BtnCollectRental_clicked();
 
     void on_BtnNewAdmission_3_clicked();
+
+    void on_BtnStudentSearch_clicked();
 
 private:
     Ui::MainWindow *ui;
