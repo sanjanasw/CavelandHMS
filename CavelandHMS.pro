@@ -14,19 +14,23 @@ SOURCES += \
     analyticsdata.cpp \
     dashboarddata.cpp \
     dbconnection.cpp \
+    expansions.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     popupwindow.cpp \
+    staff.cpp \
     studentsdata.cpp
 
 HEADERS += \
     analyticsdata.h \
     dashboarddata.h \
     dbconnection.h \
+    expansions.h \
     login.h \
     mainwindow.h \
     popupwindow.h \
+    staff.h \
     studentsdata.h
 
 FORMS += \

@@ -147,3 +147,21 @@ SELECT DISTINCT s.Room_Id, r.Room_Type, r.Building_Id FROM Students s JOIN Rooms
  
 SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1;
 
+
+CREATE PROCEDURE addnewrooms
+    @Building_Id INT,
+    @Room_Type CHAR,
+    @Rental FLOAT,
+    @Rooms_Count INT,
+    @Counter INT
+AS
+    SET @Counter = 1
+    WHILE ( @Counter <= @Rooms_Count)
+    BEGIN
+        INSERT INTO rooms(Building_Id, Room_Type, Rental) VALUES
+        (@Building_Id, @Room_Type, @Rental)
+        SET @Counter  = @Counter  + 1
+    END
+GO
+
+EXEC addnewrooms @Building_ID = 2, @Room_Type = 'S', @Rental = 20000.00, @Rooms_Count = 5 , @Counter = 1;
