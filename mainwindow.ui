@@ -1264,24 +1264,318 @@ padding-left: 10px;</string>
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>310</y>
-         <width>441</width>
-         <height>121</height>
+         <x>30</x>
+         <y>30</y>
+         <width>331</width>
+         <height>61</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>31</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>21</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
-        <string>Expansions</string>
+        <string>Add New Rooms</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>340</y>
+         <width>331</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>21</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Add New Building</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CmbBuliding">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>110</y>
+         <width>291</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtRental">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>160</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>170</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Room Count:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtRoomCount">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>160</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>170</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Rental:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>120</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Building:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CmbRoomType">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>110</y>
+         <width>291</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>S</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>D</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_42">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>120</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Room:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnAddNewRoom">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>240</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(1, 126, 250);
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
+       </property>
+       <property name="text">
+        <string>Submit</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtBuilding">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>420</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_43">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>430</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Building:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnAddNewBuilding">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>500</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(1, 126, 250);
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
+       </property>
+       <property name="text">
+        <string>Submit</string>
        </property>
       </widget>
      </widget>
@@ -1321,6 +1615,370 @@ padding-left: 10px;</string>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>223</number>
        </attribute>
+      </widget>
+      <widget class="QLineEdit" name="TxtNumber">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>420</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtName">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>320</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnStaffClose">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>530</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(1, 126, 250);
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
+       </property>
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>330</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Name: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>430</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>TP Number:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>430</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Email:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BtnSatffSubmit">
+       <property name="geometry">
+        <rect>
+         <x>740</x>
+         <y>530</y>
+         <width>150</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(187, 16, 111);
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding-top: 10%;
+padding-bottom: 10%;</string>
+       </property>
+       <property name="text">
+        <string>Submit</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtNIC">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>370</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>380</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>NIC Number:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtEmail">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>420</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>380</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Address: </string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtAddress">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>370</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>330</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Password:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="Txtpass">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>320</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>480</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Medium</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(117, 125, 138);
+padding-left: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Salary:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TxtSal">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>470</y>
+         <width>291</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid rgb(225, 227, 230);
+color: rgb(0, 0, 0);
+border-radius: 10px;
+padding-left: 10px;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
      <widget class="QFrame" name="main_header">
@@ -1662,14 +2320,14 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </widget>
-     <zorder>AnalyticsArea</zorder>
-     <zorder>ExpansionsArea</zorder>
      <zorder>main_header</zorder>
-     <zorder>LodingArea</zorder>
      <zorder>DashobardArea</zorder>
      <zorder>RoomsArea</zorder>
      <zorder>StudentsArea</zorder>
      <zorder>StaffArea</zorder>
+     <zorder>AnalyticsArea</zorder>
+     <zorder>LodingArea</zorder>
+     <zorder>ExpansionsArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">

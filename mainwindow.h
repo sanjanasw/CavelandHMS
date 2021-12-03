@@ -14,6 +14,8 @@
 #include "login.h"
 #include "analyticsdata.h"
 #include "popupwindow.h"
+#include "staff.h"
+#include "expansions.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +29,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void loading(bool loading);
     void setupButtons();
+    void populateCmbBuilding();
     ~MainWindow();
 
 private slots:
@@ -57,6 +60,10 @@ private slots:
     void on_BtnNewAdmission_3_clicked();
 
     void on_BtnStudentSearch_clicked();
+
+    void on_BtnSatffSubmit_clicked();
+
+    void on_BtnAddNewRoom_clicked();
 
 private:
     Ui::MainWindow *ui;

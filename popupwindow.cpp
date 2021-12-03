@@ -86,7 +86,6 @@ void PopUpWindow::loading(bool loading){
         ui->CollectRental->hide();
         ui->Leaving->hide();
         ui->NewAdmissionSuccess->hide();
-        ui->Staff->hide();
         ui->FindStudent->hide();
         ui->Loading->show();
         ui->LblTitle->setText("Loading...");
@@ -97,7 +96,6 @@ void PopUpWindow::loading(bool loading){
         ui->Leaving->hide();
         ui->NewAdmissionSuccess->hide();
         ui->Loading->hide();
-        ui->Staff->hide();
         ui->FindStudent->hide();
     }
 

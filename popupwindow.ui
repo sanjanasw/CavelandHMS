@@ -962,9 +962,9 @@ padding-bottom: 10%;</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>60</y>
+      <y>30</y>
       <width>421</width>
-      <height>348</height>
+      <height>446</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1150,11 +1150,11 @@ padding-bottom: 10%;</string>
   <zorder>BtnClose</zorder>
   <zorder>LblTitle</zorder>
   <zorder>Loading</zorder>
-  <zorder>NewAdmission</zorder>
   <zorder>CollectRental</zorder>
+  <zorder>FindStudent</zorder>
   <zorder>Leaving</zorder>
   <zorder>NewAdmissionSuccess</zorder>
-  <zorder>FindStudent</zorder>
+  <zorder>NewAdmission</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

@@ -112,9 +112,9 @@ void MainWindow::on_BtnDashboard_clicked()
         populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
         populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
-
-        loading(false);
+        populateCmbBuilding();
     }
+    loading(false);
     ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
     ui->LblTitle->setText("Dashboard");
     ui->DashobardArea->show();
@@ -372,5 +372,69 @@ void MainWindow::on_BtnStudentSearch_clicked()
     ui->LblTitle->setText("Students");
     ui->StudentsArea->show();
 
+}
+
+
+void MainWindow::on_BtnSatffSubmit_clicked()
+{
+    loading(true);
+    QStringList userData;
+    userData.append(ui->TxtName->text());
+    userData.append(ui->Txtpass->text());
+    userData.append(ui->TxtNIC->text());
+    userData.append(ui->TxtAddress->text());
+    userData.append(ui->TxtNumber->text());
+    userData.append(ui->TxtEmail->text());
+    userData.append(ui->TxtName->text());
+    userData.append(ui->TxtSal->text());
+    staff::AddNewUser(userData);
+    QString getStaffData = "SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1";
+    populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
+    loading(false);
+    ui->LblTitle->setText("Staff");
+    ui->StaffArea->show();
+
+}
+
+void MainWindow::populateCmbBuilding(){
+    QSqlDatabase db = DBConnection::ConnectDb();
+    ui->CmbBuliding->addItem("SELECT BUILDING");
+     try {
+         if(db.open()){
+             QSqlQuery query;
+             query.exec("SELECT Name FROM Buildings");
+             if (!db.driver()->hasFeature(QSqlDriver::QuerySize)) {
+                 while (query.next()) {
+                     ui->CmbBuliding->addItem(query.value(0).toString());
+                 }
+              }
+         }
+         db.close();
+        }  catch (...) {
+
+        }
+}
+
+
+void MainWindow::on_BtnAddNewRoom_clicked()
+{
+    loading(true);
+    bool status = expansions::addNewRooms((ui->CmbBuliding->currentIndex()), ui->CmbRoomType->currentText(), ui->TxtRental->text(), ui->TxtRoomCount->text());
+    loading(false);
+    ui->LblTitle->setText("Expantions");
+    ui->ExpansionsArea->show();
+    if(status){
+        ui->CmbBuliding->setCurrentIndex(0);
+        ui->CmbRoomType->setCurrentIndex(0);
+        ui->TxtRental->setText("");
+        ui->TxtRoomCount->setText("");
+        QMessageBox Msgbox;
+        Msgbox.setText("RoomsAddition Successfull!!");
+        Msgbox.exec();
+    }else{
+        QMessageBox Msgbox;
+        Msgbox.setText("RoomsAddition Unsuccessfull!!");
+        Msgbox.exec();
+    }
 }
 
