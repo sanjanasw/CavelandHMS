@@ -197,7 +197,7 @@ void PopUpWindow::on_BtnCollect_clicked()
      try {
          if(db.open()){
              QSqlQuery query;
-             query.exec("EXEC CollectPaymentStatus @st="+ui->TxtAdmission->text()+", @Id="+inputData[1]+";");
+             query.exec("EXEC CollectPayment @st="+ui->TxtAdmission->text()+", @id="+inputData[1]+";");
              if (!db.driver()->hasFeature(QSqlDriver::QuerySize)) {
                  PopUpWindow::close();
              }

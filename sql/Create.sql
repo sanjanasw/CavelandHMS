@@ -1,0 +1,64 @@
+--Users
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserName VARCHAR(100) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    Nic_No VARCHAR(12) NOT NULL,
+    Address VARCHAR(250) NOT NULL,
+    Tp INT NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Salary FLOAT NOT NULL,
+    User_Role BIT NOT NULL,
+);
+
+--Buildings
+CREATE TABLE Buildings (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(20) NOT NULL
+);
+
+--Rooms
+CREATE TABLE Rooms (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Building_Id INT NOT NULL,
+    Room_Type CHAR NOT NULL,
+    Rental FLOAT NOT NULL
+);
+
+ALTER TABLE Rooms
+ADD CONSTRAINT FK_Building_Id
+FOREIGN KEY (Building_Id) REFERENCES Buildings(Id);
+
+--Students
+CREATE TABLE Students (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(100) NOT NULL,
+    Nic_No VARCHAR(12) UNIQUE,
+    Address VARCHAR(250) NOT NULL,
+    Tp INT NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    University VARCHAR(80),
+    Room_Id INT NOT NULL,
+    Gender CHAR,
+    Age INT,
+);
+
+ALTER TABLE Students
+ADD CONSTRAINT FK_Room_Id
+FOREIGN KEY (Room_Id) REFERENCES Rooms(Id);
+
+--Accounts
+CREATE TABLE Accounts(
+     Id INT PRIMARY KEY IDENTITY(1,1),
+     Student_Id INT NOT NULL,
+     User_Id INT NOT NULL,
+     Paid_On DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE Accounts
+ADD CONSTRAINT FK_Student_Id
+FOREIGN KEY (Student_Id) REFERENCES Students(Id);
+
+ALTER TABLE Accounts
+ADD CONSTRAINT FK_User_Id
+FOREIGN KEY (User_Id) REFERENCES Users(Id);
