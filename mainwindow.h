@@ -65,6 +65,8 @@ private slots:
 
     void on_BtnAddNewRoom_clicked();
 
+    void on_BtnAddNewBuilding_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

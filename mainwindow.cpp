@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 QString loggedInUserName;
+QString isAdmin;
 QStringList outputData;
 int loggedInUserId;
 QDate cd = QDate::currentDate();
@@ -70,24 +71,12 @@ void MainWindow::on_BtnDashboard_clicked()
         loading(true);
         dashboarddata::getDashboardData();
 
-
         QChart* genderChart = new QChart();
         genderChart->addSeries(dashboarddata::getGenderChart());
 
         QChartView* genderChartview = new QChartView(genderChart);
         genderChartview->setMaximumSize(ui->CrtGender->size());
         genderChartview->setParent(ui->CrtGender);
-
-
-        QChart* revenueChart = new QChart();
-        revenueChart->legend()->hide();
-        revenueChart->addSeries(analyticsdata::getAnalyticsData());
-        revenueChart->createDefaultAxes();
-
-        QChartView* revenueChartView = new QChartView(revenueChart);
-        revenueChartView->setRenderHint(QPainter::Antialiasing);
-        revenueChartView->setMaximumSize(ui->CrtRevenue->size());
-        revenueChartView->setParent(ui->CrtRevenue);
 
         QString* RoomData = dashboarddata::getRoomData();
         ui->LblTotalRooms->setText(RoomData[0]);
@@ -104,15 +93,30 @@ void MainWindow::on_BtnDashboard_clicked()
         ui->LblStaffCount->setText(RoomData[5]);
 
         QString studentsCountQuery = "SELECT University, COUNT(Id) AS Student_Count FROM Students GROUP BY University";
-        QString buildingRoomDataQuery = "SELECT * FROM Building_Rooms";
-        QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
-        QString getStaffData = "SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1";
-
         populateData(studentsCountQuery, ui->TblUniversityData, "University;Students");
-        populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
+
+        QString studentDataThisMonthQuery = "EXEC GetPaymentStatus @FromDate = '"+cd.toString("yyyy-MM-01")+"' , @ToDate = '"+cd.addMonths(1).toString("yyyy-MM-01")+"'";
         populateData(studentDataThisMonthQuery, ui->TblPaymentData, "Student;Room;Building;Number;University;Status");
-        populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
-        populateCmbBuilding();
+
+        QString buildingRoomDataQuery = "SELECT * FROM Building_Rooms";
+        populateData(buildingRoomDataQuery, ui->TblBuildingsRooms, "Building Name;Single Rooms;Double Rooms;Rented Single Rooms; Rented Double Rooms");
+
+
+        if(isAdmin == "1"){
+            QChart* revenueChart = new QChart();
+            revenueChart->legend()->hide();
+            revenueChart->addSeries(analyticsdata::getAnalyticsData());
+            revenueChart->createDefaultAxes();
+
+            QChartView* revenueChartView = new QChartView(revenueChart);
+            revenueChartView->setRenderHint(QPainter::Antialiasing);
+            revenueChartView->setMaximumSize(ui->CrtRevenue->size());
+            revenueChartView->setParent(ui->CrtRevenue);
+
+            QString getStaffData = "SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1";
+            populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
+            populateCmbBuilding();
+        }
     }
     loading(false);
     ui->BtnDashboard->setStyleSheet("QPushButton{ background-color: rgb(27, 43, 101); \n color: rgb(255, 255, 255); \n border-top-left-radius: 10px; \n border-bottom-left-radius: 10px;  \n text-align: left;\npadding-left: 40px;}");
@@ -186,6 +190,7 @@ void MainWindow::on_BtnLogin_clicked()
     int loginStatus = UserData[0].toInt();
     loggedInUserId = UserData[1].toInt();
     loggedInUserName = UserData[2];
+    isAdmin = UserData[3];
     if(loginStatus == 1){
 
         //buttons
@@ -385,9 +390,24 @@ void MainWindow::on_BtnSatffSubmit_clicked()
     userData.append(ui->TxtAddress->text());
     userData.append(ui->TxtNumber->text());
     userData.append(ui->TxtEmail->text());
-    userData.append(ui->TxtName->text());
     userData.append(ui->TxtSal->text());
-    staff::AddNewUser(userData);
+    bool status = staff::AddNewUser(userData);
+    if(status){
+        ui->TxtName->setText("");
+        ui->Txtpass->setText("");
+        ui->TxtNIC->setText("");
+        ui->TxtAddress->setText("");
+        ui->TxtNumber->setText("");
+        ui->TxtEmail->setText("");
+        ui->TxtSal->setText("");
+        QMessageBox Msgbox;
+        Msgbox.setText("User Addition Successfull!!");
+        Msgbox.exec();
+    }else{
+        QMessageBox Msgbox;
+        Msgbox.setText("User Addition Unsuccessfull!!");
+        Msgbox.exec();
+    }
     QString getStaffData = "SELECT UserName, TP, Email, Salary FROM Users WHERE ID <> 1";
     populateData(getStaffData, ui->TblStaff, "Name;Phone;Email;Salary");
     loading(false);
@@ -429,12 +449,42 @@ void MainWindow::on_BtnAddNewRoom_clicked()
         ui->TxtRental->setText("");
         ui->TxtRoomCount->setText("");
         QMessageBox Msgbox;
-        Msgbox.setText("RoomsAddition Successfull!!");
+        Msgbox.setText("Rooms Addition Successfull!!");
         Msgbox.exec();
     }else{
         QMessageBox Msgbox;
-        Msgbox.setText("RoomsAddition Unsuccessfull!!");
+        Msgbox.setText("Rooms Addition Unsuccessfull!!");
         Msgbox.exec();
     }
+}
+
+
+void MainWindow::on_BtnAddNewBuilding_clicked()
+{
+    loading(true);
+    QSqlDatabase db = DBConnection::ConnectDb();
+     try {
+         if(db.open()){
+             QSqlQuery query;
+             if(query.exec("INSERT INTO Buildings(Name) VALUES('"+ui->TxtBuilding->text()+"');")){
+                 ui->TxtBuilding->setText("");
+                 QMessageBox Msgbox;
+                 Msgbox.setText("Building Addition Successfull!!");
+                 Msgbox.exec();
+             }else{
+                 QMessageBox Msgbox;
+                 Msgbox.setText("Building Addition Unsuccessfull!!");
+                 Msgbox.exec();
+             }
+         }
+         db.close();
+        }  catch (...) {
+
+        }
+    populateCmbBuilding();
+    loading(false);
+    ui->LblTitle->setText("Expantions");
+    ui->ExpansionsArea->show();
+
 }
 
