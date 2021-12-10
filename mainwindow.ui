@@ -620,6 +620,9 @@
          <height>40</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(1, 126, 250);
 border-radius: 10px;
@@ -640,6 +643,9 @@ padding-bottom: 10%;</string>
          <height>40</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
 background-color: rgb(253, 31, 155);
@@ -659,6 +665,9 @@ padding-bottom: 10%;</string>
          <width>150</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
@@ -695,6 +704,9 @@ padding-bottom: 10%;</string>
          <width>181</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">border: 1px solid rgb(225, 227, 230);
@@ -1499,6 +1511,9 @@ padding-left: 10px;</string>
          <height>40</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(1, 126, 250);
 border-radius: 10px;
@@ -1566,6 +1581,9 @@ padding-left: 10px;</string>
          <width>150</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(1, 126, 250);
@@ -1672,6 +1690,9 @@ padding-left: 10px;</string>
          <height>40</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(1, 126, 250);
 border-radius: 10px;
@@ -1760,6 +1781,9 @@ padding-left: 10px;</string>
          <width>150</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(187, 16, 111);
@@ -2185,6 +2209,9 @@ padding-left: 10px;</string>
        <property name="text">
         <string/>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
       </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
@@ -2235,7 +2262,7 @@ padding-left: 10px;</string>
       <widget class="QPushButton" name="BtnLogin">
        <property name="geometry">
         <rect>
-         <x>620</x>
+         <x>750</x>
          <y>560</y>
          <width>111</width>
          <height>31</height>
@@ -2256,7 +2283,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="BtnExit">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>630</x>
          <y>560</y>
          <width>111</width>
          <height>31</height>
@@ -2321,13 +2348,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </widget>
      <zorder>main_header</zorder>
-     <zorder>DashobardArea</zorder>
-     <zorder>RoomsArea</zorder>
-     <zorder>StudentsArea</zorder>
-     <zorder>StaffArea</zorder>
-     <zorder>AnalyticsArea</zorder>
      <zorder>LodingArea</zorder>
+     <zorder>AnalyticsArea</zorder>
+     <zorder>DashobardArea</zorder>
      <zorder>ExpansionsArea</zorder>
+     <zorder>RoomsArea</zorder>
+     <zorder>StaffArea</zorder>
+     <zorder>StudentsArea</zorder>
      <zorder>LoginArea</zorder>
     </widget>
     <widget class="QFrame" name="nav_bar">

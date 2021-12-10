@@ -41,6 +41,8 @@ private slots:
 
     void on_BtnNewAdmission_3_clicked();
 
+    void on_BtnClose2_3_clicked();
+
 private:
     Ui::PopUpWindow *ui;
 };
