@@ -214,3 +214,9 @@ void PopUpWindow::on_BtnNewAdmission_3_clicked()
     PopUpWindow::close();
 }
 
+
+void PopUpWindow::on_BtnClose2_3_clicked()
+{
+    PopUpWindow::close();
+}
+
