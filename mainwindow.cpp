@@ -7,31 +7,6 @@ QStringList outputData;
 int loggedInUserId;
 QDate cd = QDate::currentDate();
 
-//to populate data in Qtablewidget
-void populateData(QString query, QTableWidget* table, QString titles){
-    QSqlDatabase db = DBConnection::ConnectDb();
-    QSqlQueryModel * model = new QSqlQueryModel();
-    db.open();
-
-    model->setQuery(query);
-    table->setRowCount(model->rowCount());
-    table->setColumnCount(model->columnCount());
-    table->verticalHeader()->setVisible(false);
-    table->setHorizontalHeaderLabels(titles.split(";"));
-    for(int r =0; r < model->rowCount(); r++){
-        for(int c = 0; c < model->columnCount(); c++){
-
-            QString test = model->record(r).value(c).toString();
-            QTableWidgetItem *item = new QTableWidgetItem(test);
-            item->setFlags(item->flags() ^ Qt::ItemIsEditable);
-            table->setItem(r,c,item);
-            qDebug() << r << c << test;
-        }
-    }
-
-    db.close();
-}
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -486,5 +461,35 @@ void MainWindow::on_BtnAddNewBuilding_clicked()
     ui->LblTitle->setText("Expantions");
     ui->ExpansionsArea->show();
 
+}
+
+/*
+to populate data inside Qtablewidget
+need to pass query, qtablewidjet object and table title separeted by ';' in single qstring
+this will communated with database and put that data into qtablewidget
+*/
+
+void populateData(QString query, QTableWidget* table, QString titles){
+    QSqlDatabase db = DBConnection::ConnectDb();
+    QSqlQueryModel * model = new QSqlQueryModel();
+    db.open();
+
+    model->setQuery(query);
+    table->setRowCount(model->rowCount());
+    table->setColumnCount(model->columnCount());
+    table->verticalHeader()->setVisible(false);
+    table->setHorizontalHeaderLabels(titles.split(";"));
+    for(int r =0; r < model->rowCount(); r++){
+        for(int c = 0; c < model->columnCount(); c++){
+
+            QString test = model->record(r).value(c).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(test);
+            item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+            table->setItem(r,c,item);
+            qDebug() << r << c << test;
+        }
+    }
+
+    db.close();
 }
 
