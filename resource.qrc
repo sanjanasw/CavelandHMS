@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/5097611.jpg</file>
+        <file>img/Chart.png</file>
+        <file>img/Chart_alt.png</file>
+        <file>img/Folder_alt.png</file>
+        <file>img/login.jpg</file>
+        <file>img/Order.png</file>
+        <file>img/Pressure.png</file>
+        <file>img/Room.png</file>
+        <file>img/User_add.png</file>
+        <file>img/User_box.png</file>
+        <file>img/LogOut.png</file>
+        <file>img/dashboardiconb.png</file>
+        <file>img/dashboardicong.png</file>
+        <file>img/dashboardiconp.png</file>
+        <file>img/Close_round.png</file>
+        <file>img/collectRental.png</file>
+        <file>img/leavingFromRoom.png</file>
+        <file>img/newAdmissionSuccess.png</file>
+        <file>img/5293 1.png</file>
+    </qresource>
+</RCC>
