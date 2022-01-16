@@ -5,7 +5,8 @@ StudentsData::StudentsData()
 
 }
 
-QStringList StudentsData::AddNewUser(QStringList newData){
+//Add students to the system, returns new student data
+QStringList StudentsData::AddNewStudent(QStringList newData){
     QStringList newStudentsData;
     QSqlDatabase db = DBConnection::ConnectDb();
     try {
@@ -31,7 +32,9 @@ QStringList StudentsData::AddNewUser(QStringList newData){
     return newStudentsData;
 }
 
-QStringList StudentsData::FindNewUser(QString Id){
+
+//find student using admission number, returns stuent data
+QStringList StudentsData::FindStudent(QString Id){
     QStringList StudentsData;
     QSqlDatabase db = DBConnection::ConnectDb();
     try {

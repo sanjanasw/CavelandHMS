@@ -1,8 +1,9 @@
 #ifndef STAFF_H
 #define STAFF_H
-#include <QString>
 
 #include "dbconnection.h"
+
+#include <QString>
 
 class staff
 {

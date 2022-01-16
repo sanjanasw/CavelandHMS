@@ -1,5 +1,8 @@
 #ifndef LOGIN_H
 #define LOGIN_H
+
+#include "dbconnection.h"
+
 #include <QString>
 
 class Login

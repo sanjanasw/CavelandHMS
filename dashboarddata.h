@@ -5,7 +5,6 @@
 
 #include <QtCharts>
 #include <QtSql>
-#include <QtDebug>
 
 class dashboarddata
 {

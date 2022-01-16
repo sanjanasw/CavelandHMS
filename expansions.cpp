@@ -5,6 +5,7 @@ expansions::expansions()
 
 }
 
+//Return room adding status
 bool expansions::addNewRooms(int BuildingId, QString RoomType, QString Rental, QString RoomCount){
     QSqlDatabase db = DBConnection::ConnectDb();
     try {
@@ -20,8 +21,6 @@ bool expansions::addNewRooms(int BuildingId, QString RoomType, QString Rental, Q
     }  catch (...) {
         return false;
     }
+    return false;
 }
 
-bool expansions::addNewBuilding(QString Building){
-    return true;
-}

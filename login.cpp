@@ -1,21 +1,18 @@
 #include "login.h"
-#include "dbconnection.h"
-#include <QtDebug>
 
 Login::Login()
 {
 
 }
 
+//login to the system returns user data as a QString array
 QString* Login::UserLogin(QString UserName, QString Password){
     QString* UserData = new QString[4];
     UserData[0] = "0";
     //database connection
     QSqlDatabase db = DBConnection::ConnectDb();
-    qDebug() << "connecting..";
     try {
         if(db.open()){
-            qDebug() << "connected";
             QSqlQuery query;
             QString queryStringP1 = "SELECT Id, UserName, User_Role FROM Users WHERE UserName = '";
             QString queryStringP2 = "' AND Password = '";
@@ -26,7 +23,6 @@ QString* Login::UserLogin(QString UserName, QString Password){
                 int id = query.value(0).toInt();
                 QString name = query.value(1).toString();
                 QString userType = query.value(2).toString();
-                qDebug() << id << name;
                 if(id>0){
                     UserData[0] = "1";
                     UserData[1] = id;
@@ -40,6 +36,7 @@ QString* Login::UserLogin(QString UserName, QString Password){
              db.close();
              return UserData;
         }
+        UserData[0] = "2";
     }  catch (...) {
 
     }

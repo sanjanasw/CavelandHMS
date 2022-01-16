@@ -1,15 +1,16 @@
 #ifndef STUDENTSDATA_H
 #define STUDENTSDATA_H
-#include <QString>
 
 #include "dbconnection.h"
+
+#include <QString>
 
 class StudentsData
 {
 public:
     StudentsData();
-    static QStringList AddNewUser(QStringList newData);
-    static QStringList FindNewUser(QString Id);
+    static QStringList AddNewStudent(QStringList newData);
+    static QStringList FindStudent(QString Id);
 };
 
 #endif // STUDENTSDATA_H

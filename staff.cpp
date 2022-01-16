@@ -5,6 +5,7 @@ staff::staff()
 
 }
 
+// Add new user to the system
 bool staff::AddNewUser(QStringList newData){
     QSqlDatabase db = DBConnection::ConnectDb();
     try {

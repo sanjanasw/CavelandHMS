@@ -1,6 +1,6 @@
 #include "popupwindow.h"
 #include "ui_popupwindow.h"
-#include <QDebug>
+
 QStringList inputData;
 
 PopUpWindow::PopUpWindow(QWidget *parent) :
@@ -15,25 +15,30 @@ PopUpWindow::PopUpWindow(QStringList inData) :
 {
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ui->setupUi(this);
+    //Assign inpit data to the local variable
     inputData = inData;
     switch(inData[0].toInt()) {
       case 1:
+        //New Admision modal
         populateCmbBuilding();
         loading(false);
         ui->LblTitle->setText("New Admission");
         ui->NewAdmission->show();
         break;
       case 2:
+        //Collect Rental modal
         loading(false);
         ui->LblTitle->setText("Collect Rental");
         ui->CollectRental->show();
         break;
       case 3:
+        // Leaving from room modal
         loading(false);
         ui->LblTitle->setText("Leaving From Room");
         ui->Leaving->show();
         break;
       case 4:
+        //Find Student modal
         loading(false);
         ui->LblTitle->setText("Find Student");
         ui->LblFName->setText(ui->LblFName->text()+inData[2]);
@@ -171,7 +176,7 @@ void PopUpWindow::on_BtnAdmissionSubmit_clicked()
     newData.append(ui->TxtEmail->text());
     newData.append(ui->TxtUni->text());
     newData.append(ui->CmbRoom->currentText());
-    QStringList newStudent = StudentsData::AddNewUser(newData);
+    QStringList newStudent = StudentsData::AddNewStudent(newData);
     newData.clear();
     if(newStudent[0] != "0"){
         adminSuccess(newStudent);
