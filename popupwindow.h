@@ -1,11 +1,11 @@
 #ifndef POPUPWINDOW_H
 #define POPUPWINDOW_H
 
-#include <QWidget>
-
 #include "dbconnection.h"
 #include "studentsdata.h"
 #include "analyticsdata.h"
+
+#include <QWidget>
 
 namespace Ui {
 class PopUpWindow;

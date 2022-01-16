@@ -1,7 +1,7 @@
 #ifndef DBCONNECTION_H
 #define DBCONNECTION_H
-#include <QtSql>
 
+#include <QtSql>
 
 class DBConnection
 {

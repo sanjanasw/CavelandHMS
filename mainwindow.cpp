@@ -7,32 +7,6 @@ QStringList outputData;
 int loggedInUserId;
 QDate cd = QDate::currentDate();
 
-//to populate data in Qtablewidget
-void populateData(QString query, QTableWidget* table, QString titles){
-    QSqlDatabase db = DBConnection::ConnectDb();
-    QSqlQueryModel * model = new QSqlQueryModel();
-    db.open();
-
-    model->setQuery(query);
-    table->setRowCount(model->rowCount());
-    table->setColumnCount(model->columnCount());
-    table->verticalHeader()->setVisible(false);
-    table->setHorizontalHeaderLabels(titles.split(";"));
-    for(int r =0; r < model->rowCount(); r++){
-        for(int c = 0; c < model->columnCount(); c++){
-
-            QString test = model->record(r).value(c).toString();
-            QTableWidgetItem *item = new QTableWidgetItem(test);
-            item->setFlags(item->flags() ^ Qt::ItemIsEditable);
-            table->setItem(r,c,item);
-            qDebug() << r << c << test;
-        }
-    }
-
-    db.close();
-}
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -62,6 +36,34 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+/*
+to populate data inside Qtablewidget
+need to pass query, qtablewidjet object and table title separeted by ';' in single qstring
+*/
+
+void MainWindow::populateData(QString query, QTableWidget* table, QString titles){
+    QSqlDatabase db = DBConnection::ConnectDb();
+    QSqlQueryModel * model = new QSqlQueryModel();
+    db.open();
+
+    model->setQuery(query);
+    table->setRowCount(model->rowCount());
+    table->setColumnCount(model->columnCount());
+    table->verticalHeader()->setVisible(false);
+    table->setHorizontalHeaderLabels(titles.split(";"));
+    for(int r =0; r < model->rowCount(); r++){
+        for(int c = 0; c < model->columnCount(); c++){
+            QString test = model->record(r).value(c).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(test);
+            item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+            table->setItem(r,c,item);
+        }
+    }
+
+    db.close();
+}
+
 
 void MainWindow::on_BtnDashboard_clicked()
 {
@@ -216,6 +218,15 @@ void MainWindow::on_BtnLogin_clicked()
         ui->LoginArea->hide();
         ui->LodingArea->hide();
         MainWindow::on_BtnDashboard_clicked();
+    }else if(loginStatus == 2){
+        QMessageBox Msgbox;
+        Msgbox.setText("Cannot Connect to the Database. Please install ODBC Driver to the computer and try again!!");
+        Msgbox.exec();
+
+        ui->LodingArea->hide();
+        ui->LoginArea->show();
+        ui->LblTitle->setText("Login");
+        ui->LblTitle->repaint();
     }else{
         QMessageBox Msgbox;
         Msgbox.setText("Incorrect UserName or Password!!");
@@ -260,7 +271,7 @@ void MainWindow::on_BtnLogOut_clicked()
 }
 
 
-void MainWindow::on_TxtStudentId_textEdited(const QString &arg1)
+void MainWindow::on_TxtStudentId_textEdited()
 {
     ui->BtnStudentSearch->setEnabled(true);
 }
@@ -363,7 +374,7 @@ void MainWindow::on_BtnStudentSearch_clicked()
 {
     loading(true);
     outputData.clear();
-    outputData = StudentsData::FindNewUser(ui->TxtStudentId->text());
+    outputData = StudentsData::FindStudent(ui->TxtStudentId->text());
     ui->TxtStudentId->clear();
     if(outputData[0] != "0"){
         PopUpWindow* p = new PopUpWindow(outputData);
